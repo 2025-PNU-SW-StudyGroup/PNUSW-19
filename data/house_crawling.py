@@ -9,6 +9,8 @@ import os
 from itertools import product
 from fake_useragent import UserAgent
 import random
+import re
+from datetime import datetime
 
 # 비동기 세마포어 설정
 semaphore = asyncio.Semaphore(5)
@@ -245,6 +247,87 @@ def extract_detail_info(soup):
 
     return result
 
+# 매물 저장 형태 변환
+def transform_article_to_property_row(article_data):
+    summary = article_data["summary"]
+    detail = article_data["detail"]
+
+    def parse_floor(floor_str):
+        try:
+            return int(floor_str.split("/")[0].replace("층", "").strip())
+        except:
+            return None
+    
+    def check_top_floor(floor_str):
+        if (floor_str.split("/")[0].replace("층", "").strip()) == "고":
+            return True
+        return False
+    
+    def check_bottom_floor(floor_str):
+        if (floor_str.split("/")[0].replace("층", "").strip()) == "저":
+            return True
+        return False
+    
+    def parse_all_floor(floor_str):
+        try:
+            return int(floor_str.split("/")[1].replace("층", "").strip())
+        except:
+            return None
+
+    def parse_confirmation_date(date_str):
+        try:
+            # 예: "25.04.19." → "2025-04-19"
+            date_str = date_str.strip().replace(".", "-").strip("-")
+            return datetime.strptime("20" + date_str, "%Y-%m-%d").date()
+        except:
+            return None
+    
+    def parse_korean_currency(value):
+        if not value:  # None, '', 0 등 비어있을 경우
+            return 0
+
+        value = str(value).replace("원", "").replace(" ", "").replace(",", "").strip()
+
+        try:
+            return int(re.sub(r"[^\d]", "", value)) if re.search(r"\d", value) else 0
+        except ValueError:
+            print(f"⚠️ [관리비 파싱 실패] 원본 값: {value}")
+            return 0
+        
+
+    return {
+        "monthly_rent_cost": int(summary.get("월세", 0)),
+        "deposit": int(summary.get("보증금", 0)),
+        "area": float(summary.get("전용면적", 0)),
+        "floor": parse_floor(summary.get("층정보", "")),
+        "total_floors": parse_all_floor(summary.get("층정보", "")),
+        "is_top_floor": check_top_floor(summary.get("층정보", "")),
+        "is_bottom_floor": check_bottom_floor(summary.get("층정보", "")),
+        "property_type": summary.get("매물유형명"),
+        "features": summary.get("매물특징"),
+        "direction": summary.get("방향"),
+        "location": f"POINT({summary['경도']} {summary['위도']})",
+        "description": detail.get("매물설명"),
+        "agent_name": detail.get("중개사명"),
+        "agent_office": detail.get("중개사사무소"),
+        "agent_phone": ", ".join(detail.get("중개사전화", [])),
+        "agent_address": detail.get("중개사주소"),
+        "agent_registration_no": detail.get("중개사등록번호"),
+        "property_number": summary.get("매물번호"),
+        "administrative_code": summary.get("행정구역코드"),
+        "property_name": summary.get("매물명"),
+        "transaction_type": summary.get("거래유형명"),
+        "confirmation_type": summary.get("확인유형"),
+        "supply_area": float(summary.get("공급면적", 0)),
+        "property_confirmation_date": parse_confirmation_date(summary.get("매물확인일", "")).isoformat(),
+        "main_image_url": summary.get("대표이미지", ""),
+        "photo": detail.get("이미지목록", []),
+        "tags": summary.get("매물태그", ""),
+        "maintenance_cost": parse_korean_currency(detail.get("관리비", "0원")),
+        "rooms_bathrooms": detail.get("방/욕실"),
+        "duplex": detail.get("복층여부", "").strip() != "단층" if detail.get("복층여부") else False,
+        "available_move_in_date": detail.get("입주가능일", ""),
+    }
 
 # 매물 상세 정보
 async def fetch_article_detail(session, atcl_no, list_item, existing_atcl_numbers):
@@ -268,8 +351,10 @@ async def fetch_article_detail(session, atcl_no, list_item, existing_atcl_number
             "summary": refined_summary,
             "detail": useful_info
         }
+        
+        property_row = transform_article_to_property_row(article_data)
 
-        save_article(article_data)
+        save_article(property_row)
         existing_atcl_numbers.add(atcl_no)
 
         print(f"✅ [매물 저장] atclNo: {atcl_no}")
@@ -434,7 +519,7 @@ async def house_crawler(keyword):
 
         location_info = extract_location_info(search_response_text)
 
-        property_types = ["원룸","오피스텔"]
+        property_types = ["원룸"]
         trade_types = ["월세"]
 
         await process_combinations(session, location_info, property_types, trade_types, existing_atcl_numbers)
