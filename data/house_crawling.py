@@ -268,6 +268,17 @@ def transform_article_to_property_row(article_data):
             return True
         return False
     
+    def check_room_type(floor_str):
+        try:
+            if check_bottom_floor(floor_str):
+                return "반지하"
+            elif check_top_floor(floor_str):
+                return "옥탑방"
+            else:
+                return "지상"
+        except:
+            return "기타"
+    
     def parse_all_floor(floor_str):
         try:
             return int(floor_str.split("/")[1].replace("층", "").strip())
@@ -283,26 +294,36 @@ def transform_article_to_property_row(article_data):
             return None
     
     def parse_korean_currency(value):
-        if not value:  # None, '', 0 등 비어있을 경우
+        if not value:
             return 0
 
-        value = str(value).replace("원", "").replace(" ", "").replace(",", "").strip()
+        value = str(value).replace("원", "").replace(",", "").replace(" ", "").strip()
 
         try:
-            return int(re.sub(r"[^\d]", "", value)) if re.search(r"\d", value) else 0
+            # 1. 혼합 표기: "19만8000", "3만500", 등
+            if "만" in value:
+                만_split = value.split("만")
+                만 = int(만_split[0]) * 10000
+                나머지 = int(re.sub(r"[^\d]", "", 만_split[1])) if len(만_split) > 1 and 만_split[1] else 0
+                return 만 + 나머지
+
+            elif "천" in value:
+                return int(float(value.replace("천", "")) * 1000)
+
+            else:
+                return int(re.sub(r"[^\d]", "", value)) if re.search(r"\d", value) else 0
+
         except ValueError:
             print(f"⚠️ [관리비 파싱 실패] 원본 값: {value}")
             return 0
-        
 
     return {
-        "monthly_rent_cost": int(summary.get("월세", 0)),
-        "deposit": int(summary.get("보증금", 0)),
+        "monthly_rent_cost": int(summary.get("월세", 0))*10000,
+        "deposit": int(summary.get("보증금", 0))*10000,
         "area": float(summary.get("전용면적", 0)),
         "floor": parse_floor(summary.get("층정보", "")),
         "total_floors": parse_all_floor(summary.get("층정보", "")),
-        "is_top_floor": check_top_floor(summary.get("층정보", "")),
-        "is_bottom_floor": check_bottom_floor(summary.get("층정보", "")),
+        "room_type": check_room_type(summary.get("층정보", "")),
         "property_type": summary.get("매물유형명"),
         "features": summary.get("매물특징"),
         "direction": summary.get("방향"),
@@ -311,7 +332,7 @@ def transform_article_to_property_row(article_data):
         "agent_name": detail.get("중개사명"),
         "agent_office": detail.get("중개사사무소"),
         "agent_phone": ", ".join(detail.get("중개사전화", [])),
-        "agent_address": detail.get("중개사주소"),
+        "agent_address": detail.get("중개사주소").replace("지도보기","").strip(),
         "agent_registration_no": detail.get("중개사등록번호"),
         "property_number": summary.get("매물번호"),
         "administrative_code": summary.get("행정구역코드"),
@@ -519,8 +540,8 @@ async def house_crawler(keyword):
 
         location_info = extract_location_info(search_response_text)
 
-        property_types = ["원룸"]
-        trade_types = ["월세"]
+        property_types = ["원룸", "오피스텔"]
+        trade_types = ["월세","전세"]
 
         await process_combinations(session, location_info, property_types, trade_types, existing_atcl_numbers)
 
