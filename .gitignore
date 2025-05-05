@@ -1,1 +1,11 @@
 .env
+run_crawler.sh
+data/*csv
+data/logs
+data/*json
+data/scoring/infra_data
+data/public_data/서울행정동경계
+data/public_data/*csv
+data/property_crawler/*jsonl
+data/property_crawler/logs
+__pycache__/
