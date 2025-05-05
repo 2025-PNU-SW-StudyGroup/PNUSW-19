@@ -1,0 +1,2570 @@
+[
+  {
+    "dong_code": "1111010100",
+    "gu": "종로구",
+    "dong": "청운동",
+    "transport": 0.3446
+  },
+  {
+    "dong_code": "1111010400",
+    "gu": "종로구",
+    "dong": "효자동",
+    "transport": 0.5791
+  },
+  {
+    "dong_code": "1111010500",
+    "gu": "종로구",
+    "dong": "창성동",
+    "transport": 0.4423
+  },
+  {
+    "dong_code": "1111010600",
+    "gu": "종로구",
+    "dong": "통의동",
+    "transport": 0.5678
+  },
+  {
+    "dong_code": "1111010700",
+    "gu": "종로구",
+    "dong": "적선동",
+    "transport": 0.5047
+  },
+  {
+    "dong_code": "1111010800",
+    "gu": "종로구",
+    "dong": "통인동",
+    "transport": 0.799
+  },
+  {
+    "dong_code": "1111010900",
+    "gu": "종로구",
+    "dong": "누상동",
+    "transport": 0.1751
+  },
+  {
+    "dong_code": "1111011000",
+    "gu": "종로구",
+    "dong": "누하동",
+    "transport": 0.6722
+  },
+  {
+    "dong_code": "1111011100",
+    "gu": "종로구",
+    "dong": "옥인동",
+    "transport": 0.2106
+  },
+  {
+    "dong_code": "1111011200",
+    "gu": "종로구",
+    "dong": "체부동",
+    "transport": 0.4966
+  },
+  {
+    "dong_code": "1111011400",
+    "gu": "종로구",
+    "dong": "내자동",
+    "transport": 0.7447
+  },
+  {
+    "dong_code": "1111011500",
+    "gu": "종로구",
+    "dong": "사직동",
+    "transport": 0.5882
+  },
+  {
+    "dong_code": "1111011900",
+    "gu": "종로구",
+    "dong": "세종로",
+    "transport": 0.4795
+  },
+  {
+    "dong_code": "1111012000",
+    "gu": "종로구",
+    "dong": "신문로1가",
+    "transport": 0.6983
+  },
+  {
+    "dong_code": "1111012100",
+    "gu": "종로구",
+    "dong": "신문로2가",
+    "transport": 0.3736
+  },
+  {
+    "dong_code": "1111012300",
+    "gu": "종로구",
+    "dong": "서린동",
+    "transport": 0.6242
+  },
+  {
+    "dong_code": "1111012500",
+    "gu": "종로구",
+    "dong": "중학동",
+    "transport": 0.5732
+  },
+  {
+    "dong_code": "1111012600",
+    "gu": "종로구",
+    "dong": "종로1가",
+    "transport": 0.8203
+  },
+  {
+    "dong_code": "1111012700",
+    "gu": "종로구",
+    "dong": "공평동",
+    "transport": 0.6655
+  },
+  {
+    "dong_code": "1111012800",
+    "gu": "종로구",
+    "dong": "관훈동",
+    "transport": 0.4017
+  },
+  {
+    "dong_code": "1111012900",
+    "gu": "종로구",
+    "dong": "견지동",
+    "transport": 0.8156
+  },
+  {
+    "dong_code": "1111013000",
+    "gu": "종로구",
+    "dong": "와룡동",
+    "transport": 0.2397
+  },
+  {
+    "dong_code": "1111013100",
+    "gu": "종로구",
+    "dong": "권농동",
+    "transport": 0.5507
+  },
+  {
+    "dong_code": "1111013200",
+    "gu": "종로구",
+    "dong": "운니동",
+    "transport": 0.7314
+  },
+  {
+    "dong_code": "1111013400",
+    "gu": "종로구",
+    "dong": "경운동",
+    "transport": 0.7716
+  },
+  {
+    "dong_code": "1111013500",
+    "gu": "종로구",
+    "dong": "관철동",
+    "transport": 0.6976
+  },
+  {
+    "dong_code": "1111013600",
+    "gu": "종로구",
+    "dong": "인사동",
+    "transport": 0.5485
+  },
+  {
+    "dong_code": "1111013700",
+    "gu": "종로구",
+    "dong": "낙원동",
+    "transport": 0.4029
+  },
+  {
+    "dong_code": "1111013800",
+    "gu": "종로구",
+    "dong": "종로2가",
+    "transport": 0.8327
+  },
+  {
+    "dong_code": "1111013900",
+    "gu": "종로구",
+    "dong": "팔판동",
+    "transport": 0.6525
+  },
+  {
+    "dong_code": "1111014000",
+    "gu": "종로구",
+    "dong": "삼청동",
+    "transport": 0.2481
+  },
+  {
+    "dong_code": "1111014100",
+    "gu": "종로구",
+    "dong": "안국동",
+    "transport": 0.6919
+  },
+  {
+    "dong_code": "1111014200",
+    "gu": "종로구",
+    "dong": "소격동",
+    "transport": 0.4365
+  },
+  {
+    "dong_code": "1111014300",
+    "gu": "종로구",
+    "dong": "화동",
+    "transport": 0.4465
+  },
+  {
+    "dong_code": "1111014400",
+    "gu": "종로구",
+    "dong": "사간동",
+    "transport": 0.5861
+  },
+  {
+    "dong_code": "1111014500",
+    "gu": "종로구",
+    "dong": "송현동",
+    "transport": 0.4958
+  },
+  {
+    "dong_code": "1111014600",
+    "gu": "종로구",
+    "dong": "가회동",
+    "transport": 0.6612
+  },
+  {
+    "dong_code": "1111014700",
+    "gu": "종로구",
+    "dong": "재동",
+    "transport": 0.742
+  },
+  {
+    "dong_code": "1111014800",
+    "gu": "종로구",
+    "dong": "계동",
+    "transport": 0.5842
+  },
+  {
+    "dong_code": "1111014900",
+    "gu": "종로구",
+    "dong": "원서동",
+    "transport": 0.4684
+  },
+  {
+    "dong_code": "1111015100",
+    "gu": "종로구",
+    "dong": "묘동",
+    "transport": 0.5768
+  },
+  {
+    "dong_code": "1111015300",
+    "gu": "종로구",
+    "dong": "돈의동",
+    "transport": 0.7026
+  },
+  {
+    "dong_code": "1111015400",
+    "gu": "종로구",
+    "dong": "장사동",
+    "transport": 0.4483
+  },
+  {
+    "dong_code": "1111015500",
+    "gu": "종로구",
+    "dong": "관수동",
+    "transport": 0.4404
+  },
+  {
+    "dong_code": "1111015600",
+    "gu": "종로구",
+    "dong": "종로3가",
+    "transport": 0.8894
+  },
+  {
+    "dong_code": "1111015700",
+    "gu": "종로구",
+    "dong": "인의동",
+    "transport": 0.514
+  },
+  {
+    "dong_code": "1111015800",
+    "gu": "종로구",
+    "dong": "예지동",
+    "transport": 0.632
+  },
+  {
+    "dong_code": "1111015900",
+    "gu": "종로구",
+    "dong": "원남동",
+    "transport": 0.6748
+  },
+  {
+    "dong_code": "1111016000",
+    "gu": "종로구",
+    "dong": "연지동",
+    "transport": 0.3222
+  },
+  {
+    "dong_code": "1111016100",
+    "gu": "종로구",
+    "dong": "종로4가",
+    "transport": 0.868
+  },
+  {
+    "dong_code": "1111016200",
+    "gu": "종로구",
+    "dong": "효제동",
+    "transport": 0.5555
+  },
+  {
+    "dong_code": "1111016300",
+    "gu": "종로구",
+    "dong": "종로5가",
+    "transport": 0.7314
+  },
+  {
+    "dong_code": "1111016400",
+    "gu": "종로구",
+    "dong": "종로6가",
+    "transport": 0.5745
+  },
+  {
+    "dong_code": "1111016500",
+    "gu": "종로구",
+    "dong": "이화동",
+    "transport": 0.4374
+  },
+  {
+    "dong_code": "1111016600",
+    "gu": "종로구",
+    "dong": "연건동",
+    "transport": 0.6619
+  },
+  {
+    "dong_code": "1111016700",
+    "gu": "종로구",
+    "dong": "충신동",
+    "transport": 0.5069
+  },
+  {
+    "dong_code": "1111016800",
+    "gu": "종로구",
+    "dong": "동숭동",
+    "transport": 0.3066
+  },
+  {
+    "dong_code": "1111016900",
+    "gu": "종로구",
+    "dong": "혜화동",
+    "transport": 0.538
+  },
+  {
+    "dong_code": "1111017000",
+    "gu": "종로구",
+    "dong": "명륜1가",
+    "transport": 0.593
+  },
+  {
+    "dong_code": "1111017100",
+    "gu": "종로구",
+    "dong": "명륜2가",
+    "transport": 0.5974
+  },
+  {
+    "dong_code": "1111017200",
+    "gu": "종로구",
+    "dong": "명륜4가",
+    "transport": 0.6146
+  },
+  {
+    "dong_code": "1111017300",
+    "gu": "종로구",
+    "dong": "명륜3가",
+    "transport": 0.6062
+  },
+  {
+    "dong_code": "1111017400",
+    "gu": "종로구",
+    "dong": "창신동",
+    "transport": 0.5044
+  },
+  {
+    "dong_code": "1111017500",
+    "gu": "종로구",
+    "dong": "숭인동",
+    "transport": 0.5901
+  },
+  {
+    "dong_code": "1111017600",
+    "gu": "종로구",
+    "dong": "교남동",
+    "transport": 0.9198
+  },
+  {
+    "dong_code": "1111017700",
+    "gu": "종로구",
+    "dong": "평동",
+    "transport": 0.7395
+  },
+  {
+    "dong_code": "1111017800",
+    "gu": "종로구",
+    "dong": "송월동",
+    "transport": 0.4986
+  },
+  {
+    "dong_code": "1111017900",
+    "gu": "종로구",
+    "dong": "홍파동",
+    "transport": 0.5116
+  },
+  {
+    "dong_code": "1111018000",
+    "gu": "종로구",
+    "dong": "교북동",
+    "transport": 0.9423
+  },
+  {
+    "dong_code": "1111018100",
+    "gu": "종로구",
+    "dong": "행촌동",
+    "transport": 0.5635
+  },
+  {
+    "dong_code": "1111018200",
+    "gu": "종로구",
+    "dong": "구기동",
+    "transport": 0.2116
+  },
+  {
+    "dong_code": "1111018300",
+    "gu": "종로구",
+    "dong": "평창동",
+    "transport": 0.2754
+  },
+  {
+    "dong_code": "1111018400",
+    "gu": "종로구",
+    "dong": "부암동",
+    "transport": 0.2439
+  },
+  {
+    "dong_code": "1111018500",
+    "gu": "종로구",
+    "dong": "홍지동",
+    "transport": 0.6719
+  },
+  {
+    "dong_code": "1111018600",
+    "gu": "종로구",
+    "dong": "신영동",
+    "transport": 0.4395
+  },
+  {
+    "dong_code": "1111018700",
+    "gu": "종로구",
+    "dong": "무악동",
+    "transport": 0.4002
+  },
+  {
+    "dong_code": "1114010300",
+    "gu": "중구",
+    "dong": "태평로1가",
+    "transport": 0.814
+  },
+  {
+    "dong_code": "1114010400",
+    "gu": "중구",
+    "dong": "을지로1가",
+    "transport": 0.7545
+  },
+  {
+    "dong_code": "1114010500",
+    "gu": "중구",
+    "dong": "을지로2가",
+    "transport": 0.5329
+  },
+  {
+    "dong_code": "1114010600",
+    "gu": "중구",
+    "dong": "남대문로1가",
+    "transport": 0.8956
+  },
+  {
+    "dong_code": "1114010700",
+    "gu": "중구",
+    "dong": "삼각동",
+    "transport": 0.598
+  },
+  {
+    "dong_code": "1114011000",
+    "gu": "중구",
+    "dong": "수표동",
+    "transport": 0.5454
+  },
+  {
+    "dong_code": "1114011100",
+    "gu": "중구",
+    "dong": "소공동",
+    "transport": 0.5148
+  },
+  {
+    "dong_code": "1114011200",
+    "gu": "중구",
+    "dong": "남창동",
+    "transport": 0.6605
+  },
+  {
+    "dong_code": "1114011400",
+    "gu": "중구",
+    "dong": "태평로2가",
+    "transport": 0.794
+  },
+  {
+    "dong_code": "1114011500",
+    "gu": "중구",
+    "dong": "남대문로2가",
+    "transport": 1.0
+  },
+  {
+    "dong_code": "1114011600",
+    "gu": "중구",
+    "dong": "남대문로3가",
+    "transport": 0.7737
+  },
+  {
+    "dong_code": "1114011700",
+    "gu": "중구",
+    "dong": "남대문로4가",
+    "transport": 0.595
+  },
+  {
+    "dong_code": "1114011800",
+    "gu": "중구",
+    "dong": "남대문로5가",
+    "transport": 0.6513
+  },
+  {
+    "dong_code": "1114011900",
+    "gu": "중구",
+    "dong": "봉래동1가",
+    "transport": 0.7343
+  },
+  {
+    "dong_code": "1114012000",
+    "gu": "중구",
+    "dong": "봉래동2가",
+    "transport": 0.7458
+  },
+  {
+    "dong_code": "1114012100",
+    "gu": "중구",
+    "dong": "회현동1가",
+    "transport": 0.3981
+  },
+  {
+    "dong_code": "1114012200",
+    "gu": "중구",
+    "dong": "회현동2가",
+    "transport": 0.6263
+  },
+  {
+    "dong_code": "1114012400",
+    "gu": "중구",
+    "dong": "충무로1가",
+    "transport": 0.5791
+  },
+  {
+    "dong_code": "1114012500",
+    "gu": "중구",
+    "dong": "충무로2가",
+    "transport": 0.6304
+  },
+  {
+    "dong_code": "1114012800",
+    "gu": "중구",
+    "dong": "남산동1가",
+    "transport": 0.6305
+  },
+  {
+    "dong_code": "1114013100",
+    "gu": "중구",
+    "dong": "저동1가",
+    "transport": 0.8237
+  },
+  {
+    "dong_code": "1114013200",
+    "gu": "중구",
+    "dong": "충무로4가",
+    "transport": 0.7228
+  },
+  {
+    "dong_code": "1114013300",
+    "gu": "중구",
+    "dong": "충무로5가",
+    "transport": 0.4598
+  },
+  {
+    "dong_code": "1114013500",
+    "gu": "중구",
+    "dong": "예관동",
+    "transport": 0.5265
+  },
+  {
+    "dong_code": "1114013600",
+    "gu": "중구",
+    "dong": "묵정동",
+    "transport": 0.435
+  },
+  {
+    "dong_code": "1114013700",
+    "gu": "중구",
+    "dong": "필동1가",
+    "transport": 0.8212
+  },
+  {
+    "dong_code": "1114013800",
+    "gu": "중구",
+    "dong": "필동2가",
+    "transport": 0.2316
+  },
+  {
+    "dong_code": "1114014100",
+    "gu": "중구",
+    "dong": "주자동",
+    "transport": 0.6325
+  },
+  {
+    "dong_code": "1114014200",
+    "gu": "중구",
+    "dong": "예장동",
+    "transport": 0.2468
+  },
+  {
+    "dong_code": "1114014300",
+    "gu": "중구",
+    "dong": "장충동1가",
+    "transport": 0.5347
+  },
+  {
+    "dong_code": "1114014400",
+    "gu": "중구",
+    "dong": "장충동2가",
+    "transport": 0.3095
+  },
+  {
+    "dong_code": "1114014500",
+    "gu": "중구",
+    "dong": "광희동1가",
+    "transport": 0.5984
+  },
+  {
+    "dong_code": "1114014600",
+    "gu": "중구",
+    "dong": "광희동2가",
+    "transport": 0.7743
+  },
+  {
+    "dong_code": "1114014700",
+    "gu": "중구",
+    "dong": "쌍림동",
+    "transport": 0.6041
+  },
+  {
+    "dong_code": "1114014800",
+    "gu": "중구",
+    "dong": "을지로6가",
+    "transport": 0.6026
+  },
+  {
+    "dong_code": "1114014900",
+    "gu": "중구",
+    "dong": "을지로7가",
+    "transport": 0.7125
+  },
+  {
+    "dong_code": "1114015000",
+    "gu": "중구",
+    "dong": "을지로4가",
+    "transport": 0.7666
+  },
+  {
+    "dong_code": "1114015100",
+    "gu": "중구",
+    "dong": "을지로5가",
+    "transport": 0.6047
+  },
+  {
+    "dong_code": "1114015200",
+    "gu": "중구",
+    "dong": "주교동",
+    "transport": 0.5382
+  },
+  {
+    "dong_code": "1114015300",
+    "gu": "중구",
+    "dong": "방산동",
+    "transport": 0.6618
+  },
+  {
+    "dong_code": "1114015500",
+    "gu": "중구",
+    "dong": "을지로3가",
+    "transport": 0.696
+  },
+  {
+    "dong_code": "1114015600",
+    "gu": "중구",
+    "dong": "입정동",
+    "transport": 0.5212
+  },
+  {
+    "dong_code": "1114016000",
+    "gu": "중구",
+    "dong": "인현동1가",
+    "transport": 0.5001
+  },
+  {
+    "dong_code": "1114016200",
+    "gu": "중구",
+    "dong": "신당동",
+    "transport": 0.4769
+  },
+  {
+    "dong_code": "1114016300",
+    "gu": "중구",
+    "dong": "흥인동",
+    "transport": 0.5124
+  },
+  {
+    "dong_code": "1114016500",
+    "gu": "중구",
+    "dong": "황학동",
+    "transport": 0.5152
+  },
+  {
+    "dong_code": "1114016600",
+    "gu": "중구",
+    "dong": "서소문동",
+    "transport": 0.6666
+  },
+  {
+    "dong_code": "1114016700",
+    "gu": "중구",
+    "dong": "정동",
+    "transport": 0.3955
+  },
+  {
+    "dong_code": "1114016800",
+    "gu": "중구",
+    "dong": "순화동",
+    "transport": 0.4061
+  },
+  {
+    "dong_code": "1114016900",
+    "gu": "중구",
+    "dong": "의주로1가",
+    "transport": 0.9637
+  },
+  {
+    "dong_code": "1114017000",
+    "gu": "중구",
+    "dong": "충정로1가",
+    "transport": 0.5546
+  },
+  {
+    "dong_code": "1114017100",
+    "gu": "중구",
+    "dong": "중림동",
+    "transport": 0.5304
+  },
+  {
+    "dong_code": "1114017300",
+    "gu": "중구",
+    "dong": "만리동1가",
+    "transport": 0.5468
+  },
+  {
+    "dong_code": "1114017400",
+    "gu": "중구",
+    "dong": "만리동2가",
+    "transport": 0.4053
+  },
+  {
+    "dong_code": "1117010100",
+    "gu": "용산구",
+    "dong": "후암동",
+    "transport": 0.4723
+  },
+  {
+    "dong_code": "1117010200",
+    "gu": "용산구",
+    "dong": "용산동2가",
+    "transport": 0.4723
+  },
+  {
+    "dong_code": "1117010300",
+    "gu": "용산구",
+    "dong": "용산동4가",
+    "transport": 0.2197
+  },
+  {
+    "dong_code": "1117010400",
+    "gu": "용산구",
+    "dong": "갈월동",
+    "transport": 0.6556
+  },
+  {
+    "dong_code": "1117010500",
+    "gu": "용산구",
+    "dong": "남영동",
+    "transport": 0.6424
+  },
+  {
+    "dong_code": "1117010600",
+    "gu": "용산구",
+    "dong": "용산동1가",
+    "transport": 0.2167
+  },
+  {
+    "dong_code": "1117010700",
+    "gu": "용산구",
+    "dong": "동자동",
+    "transport": 0.5142
+  },
+  {
+    "dong_code": "1117010800",
+    "gu": "용산구",
+    "dong": "서계동",
+    "transport": 0.5684
+  },
+  {
+    "dong_code": "1117010900",
+    "gu": "용산구",
+    "dong": "청파동1가",
+    "transport": 0.4239
+  },
+  {
+    "dong_code": "1117011000",
+    "gu": "용산구",
+    "dong": "청파동2가",
+    "transport": 0.6366
+  },
+  {
+    "dong_code": "1117011100",
+    "gu": "용산구",
+    "dong": "청파동3가",
+    "transport": 0.3929
+  },
+  {
+    "dong_code": "1117011200",
+    "gu": "용산구",
+    "dong": "원효로1가",
+    "transport": 0.6082
+  },
+  {
+    "dong_code": "1117011300",
+    "gu": "용산구",
+    "dong": "원효로2가",
+    "transport": 0.6722
+  },
+  {
+    "dong_code": "1117011400",
+    "gu": "용산구",
+    "dong": "신창동",
+    "transport": 0.7088
+  },
+  {
+    "dong_code": "1117011500",
+    "gu": "용산구",
+    "dong": "산천동",
+    "transport": 0.5612
+  },
+  {
+    "dong_code": "1117011600",
+    "gu": "용산구",
+    "dong": "청암동",
+    "transport": 0.6815
+  },
+  {
+    "dong_code": "1117011700",
+    "gu": "용산구",
+    "dong": "원효로3가",
+    "transport": 0.5209
+  },
+  {
+    "dong_code": "1117011800",
+    "gu": "용산구",
+    "dong": "원효로4가",
+    "transport": 0.5257
+  },
+  {
+    "dong_code": "1117011900",
+    "gu": "용산구",
+    "dong": "효창동",
+    "transport": 0.5932
+  },
+  {
+    "dong_code": "1117012000",
+    "gu": "용산구",
+    "dong": "도원동",
+    "transport": 0.7201
+  },
+  {
+    "dong_code": "1117012100",
+    "gu": "용산구",
+    "dong": "용문동",
+    "transport": 0.6868
+  },
+  {
+    "dong_code": "1117012200",
+    "gu": "용산구",
+    "dong": "문배동",
+    "transport": 0.6337
+  },
+  {
+    "dong_code": "1117012300",
+    "gu": "용산구",
+    "dong": "신계동",
+    "transport": 0.4052
+  },
+  {
+    "dong_code": "1117012400",
+    "gu": "용산구",
+    "dong": "한강로1가",
+    "transport": 0.5786
+  },
+  {
+    "dong_code": "1117012500",
+    "gu": "용산구",
+    "dong": "한강로2가",
+    "transport": 0.534
+  },
+  {
+    "dong_code": "1117012600",
+    "gu": "용산구",
+    "dong": "용산동3가",
+    "transport": 0.1339
+  },
+  {
+    "dong_code": "1117012700",
+    "gu": "용산구",
+    "dong": "용산동5가",
+    "transport": 0.2435
+  },
+  {
+    "dong_code": "1117012800",
+    "gu": "용산구",
+    "dong": "한강로3가",
+    "transport": 0.469
+  },
+  {
+    "dong_code": "1117012900",
+    "gu": "용산구",
+    "dong": "이촌동",
+    "transport": 0.2982
+  },
+  {
+    "dong_code": "1117013000",
+    "gu": "용산구",
+    "dong": "이태원동",
+    "transport": 0.5256
+  },
+  {
+    "dong_code": "1117013100",
+    "gu": "용산구",
+    "dong": "한남동",
+    "transport": 0.4141
+  },
+  {
+    "dong_code": "1117013200",
+    "gu": "용산구",
+    "dong": "동빙고동",
+    "transport": 0.3831
+  },
+  {
+    "dong_code": "1117013300",
+    "gu": "용산구",
+    "dong": "서빙고동",
+    "transport": 0.4052
+  },
+  {
+    "dong_code": "1117013500",
+    "gu": "용산구",
+    "dong": "용산동6가",
+    "transport": 0.2574
+  },
+  {
+    "dong_code": "1117013600",
+    "gu": "용산구",
+    "dong": "보광동",
+    "transport": 0.4425
+  },
+  {
+    "dong_code": "1120010100",
+    "gu": "성동구",
+    "dong": "상왕십리동",
+    "transport": 0.6122
+  },
+  {
+    "dong_code": "1120010200",
+    "gu": "성동구",
+    "dong": "하왕십리동",
+    "transport": 0.6298
+  },
+  {
+    "dong_code": "1120010300",
+    "gu": "성동구",
+    "dong": "홍익동",
+    "transport": 0.448
+  },
+  {
+    "dong_code": "1120010400",
+    "gu": "성동구",
+    "dong": "도선동",
+    "transport": 0.5948
+  },
+  {
+    "dong_code": "1120010500",
+    "gu": "성동구",
+    "dong": "마장동",
+    "transport": 0.539
+  },
+  {
+    "dong_code": "1120010600",
+    "gu": "성동구",
+    "dong": "사근동",
+    "transport": 0.5988
+  },
+  {
+    "dong_code": "1120010700",
+    "gu": "성동구",
+    "dong": "행당동",
+    "transport": 0.6507
+  },
+  {
+    "dong_code": "1120010800",
+    "gu": "성동구",
+    "dong": "응봉동",
+    "transport": 0.6799
+  },
+  {
+    "dong_code": "1120010900",
+    "gu": "성동구",
+    "dong": "금호동1가",
+    "transport": 0.7784
+  },
+  {
+    "dong_code": "1120011000",
+    "gu": "성동구",
+    "dong": "금호동2가",
+    "transport": 0.6937
+  },
+  {
+    "dong_code": "1120011100",
+    "gu": "성동구",
+    "dong": "금호동3가",
+    "transport": 0.7089
+  },
+  {
+    "dong_code": "1120011200",
+    "gu": "성동구",
+    "dong": "금호동4가",
+    "transport": 0.6004
+  },
+  {
+    "dong_code": "1120011300",
+    "gu": "성동구",
+    "dong": "옥수동",
+    "transport": 0.4847
+  },
+  {
+    "dong_code": "1120011400",
+    "gu": "성동구",
+    "dong": "성수동1가",
+    "transport": 0.4295
+  },
+  {
+    "dong_code": "1120011500",
+    "gu": "성동구",
+    "dong": "성수동2가",
+    "transport": 0.5061
+  },
+  {
+    "dong_code": "1120011800",
+    "gu": "성동구",
+    "dong": "송정동",
+    "transport": 0.3236
+  },
+  {
+    "dong_code": "1120012200",
+    "gu": "성동구",
+    "dong": "용답동",
+    "transport": 0.3195
+  },
+  {
+    "dong_code": "1121510100",
+    "gu": "광진구",
+    "dong": "중곡동",
+    "transport": 0.4993
+  },
+  {
+    "dong_code": "1121510200",
+    "gu": "광진구",
+    "dong": "능동",
+    "transport": 0.3591
+  },
+  {
+    "dong_code": "1121510300",
+    "gu": "광진구",
+    "dong": "구의동",
+    "transport": 0.479
+  },
+  {
+    "dong_code": "1121510400",
+    "gu": "광진구",
+    "dong": "광장동",
+    "transport": 0.4361
+  },
+  {
+    "dong_code": "1121510500",
+    "gu": "광진구",
+    "dong": "자양동",
+    "transport": 0.4023
+  },
+  {
+    "dong_code": "1121510700",
+    "gu": "광진구",
+    "dong": "화양동",
+    "transport": 0.4708
+  },
+  {
+    "dong_code": "1121510900",
+    "gu": "광진구",
+    "dong": "군자동",
+    "transport": 0.556
+  },
+  {
+    "dong_code": "1123010100",
+    "gu": "동대문구",
+    "dong": "신설동",
+    "transport": 0.5705
+  },
+  {
+    "dong_code": "1123010200",
+    "gu": "동대문구",
+    "dong": "용두동",
+    "transport": 0.5147
+  },
+  {
+    "dong_code": "1123010300",
+    "gu": "동대문구",
+    "dong": "제기동",
+    "transport": 0.5009
+  },
+  {
+    "dong_code": "1123010400",
+    "gu": "동대문구",
+    "dong": "전농동",
+    "transport": 0.4895
+  },
+  {
+    "dong_code": "1123010500",
+    "gu": "동대문구",
+    "dong": "답십리동",
+    "transport": 0.5405
+  },
+  {
+    "dong_code": "1123010600",
+    "gu": "동대문구",
+    "dong": "장안동",
+    "transport": 0.5256
+  },
+  {
+    "dong_code": "1123010700",
+    "gu": "동대문구",
+    "dong": "청량리동",
+    "transport": 0.4842
+  },
+  {
+    "dong_code": "1123010800",
+    "gu": "동대문구",
+    "dong": "회기동",
+    "transport": 0.3731
+  },
+  {
+    "dong_code": "1123010900",
+    "gu": "동대문구",
+    "dong": "휘경동",
+    "transport": 0.4655
+  },
+  {
+    "dong_code": "1123011000",
+    "gu": "동대문구",
+    "dong": "이문동",
+    "transport": 0.5177
+  },
+  {
+    "dong_code": "1126010100",
+    "gu": "중랑구",
+    "dong": "면목동",
+    "transport": 0.4851
+  },
+  {
+    "dong_code": "1126010200",
+    "gu": "중랑구",
+    "dong": "상봉동",
+    "transport": 0.4848
+  },
+  {
+    "dong_code": "1126010300",
+    "gu": "중랑구",
+    "dong": "중화동",
+    "transport": 0.527
+  },
+  {
+    "dong_code": "1126010400",
+    "gu": "중랑구",
+    "dong": "묵동",
+    "transport": 0.5457
+  },
+  {
+    "dong_code": "1126010500",
+    "gu": "중랑구",
+    "dong": "망우동",
+    "transport": 0.4494
+  },
+  {
+    "dong_code": "1126010600",
+    "gu": "중랑구",
+    "dong": "신내동",
+    "transport": 0.4826
+  },
+  {
+    "dong_code": "1129010100",
+    "gu": "성북구",
+    "dong": "성북동",
+    "transport": 0.4016
+  },
+  {
+    "dong_code": "1129010200",
+    "gu": "성북구",
+    "dong": "성북동1가",
+    "transport": 0.7393
+  },
+  {
+    "dong_code": "1129010300",
+    "gu": "성북구",
+    "dong": "돈암동",
+    "transport": 0.6299
+  },
+  {
+    "dong_code": "1129010400",
+    "gu": "성북구",
+    "dong": "동소문동1가",
+    "transport": 0.4271
+  },
+  {
+    "dong_code": "1129010500",
+    "gu": "성북구",
+    "dong": "동소문동2가",
+    "transport": 0.803
+  },
+  {
+    "dong_code": "1129010600",
+    "gu": "성북구",
+    "dong": "동소문동3가",
+    "transport": 0.7274
+  },
+  {
+    "dong_code": "1129010700",
+    "gu": "성북구",
+    "dong": "동소문동4가",
+    "transport": 0.5694
+  },
+  {
+    "dong_code": "1129010800",
+    "gu": "성북구",
+    "dong": "동소문동5가",
+    "transport": 0.6442
+  },
+  {
+    "dong_code": "1129010900",
+    "gu": "성북구",
+    "dong": "동소문동6가",
+    "transport": 0.4762
+  },
+  {
+    "dong_code": "1129011000",
+    "gu": "성북구",
+    "dong": "동소문동7가",
+    "transport": 0.6266
+  },
+  {
+    "dong_code": "1129011100",
+    "gu": "성북구",
+    "dong": "삼선동1가",
+    "transport": 0.5117
+  },
+  {
+    "dong_code": "1129011200",
+    "gu": "성북구",
+    "dong": "삼선동2가",
+    "transport": 0.6679
+  },
+  {
+    "dong_code": "1129011300",
+    "gu": "성북구",
+    "dong": "삼선동3가",
+    "transport": 0.5877
+  },
+  {
+    "dong_code": "1129011400",
+    "gu": "성북구",
+    "dong": "삼선동4가",
+    "transport": 0.5827
+  },
+  {
+    "dong_code": "1129011500",
+    "gu": "성북구",
+    "dong": "삼선동5가",
+    "transport": 0.6223
+  },
+  {
+    "dong_code": "1129011600",
+    "gu": "성북구",
+    "dong": "동선동1가",
+    "transport": 0.6532
+  },
+  {
+    "dong_code": "1129011700",
+    "gu": "성북구",
+    "dong": "동선동2가",
+    "transport": 0.6972
+  },
+  {
+    "dong_code": "1129011900",
+    "gu": "성북구",
+    "dong": "동선동4가",
+    "transport": 0.3698
+  },
+  {
+    "dong_code": "1129012000",
+    "gu": "성북구",
+    "dong": "동선동5가",
+    "transport": 0.418
+  },
+  {
+    "dong_code": "1129012100",
+    "gu": "성북구",
+    "dong": "안암동1가",
+    "transport": 0.551
+  },
+  {
+    "dong_code": "1129012200",
+    "gu": "성북구",
+    "dong": "안암동2가",
+    "transport": 0.7147
+  },
+  {
+    "dong_code": "1129012400",
+    "gu": "성북구",
+    "dong": "안암동4가",
+    "transport": 0.4456
+  },
+  {
+    "dong_code": "1129012500",
+    "gu": "성북구",
+    "dong": "안암동5가",
+    "transport": 0.4864
+  },
+  {
+    "dong_code": "1129012600",
+    "gu": "성북구",
+    "dong": "보문동4가",
+    "transport": 0.5052
+  },
+  {
+    "dong_code": "1129012700",
+    "gu": "성북구",
+    "dong": "보문동5가",
+    "transport": 0.4515
+  },
+  {
+    "dong_code": "1129012900",
+    "gu": "성북구",
+    "dong": "보문동7가",
+    "transport": 0.5565
+  },
+  {
+    "dong_code": "1129013000",
+    "gu": "성북구",
+    "dong": "보문동1가",
+    "transport": 0.6889
+  },
+  {
+    "dong_code": "1129013100",
+    "gu": "성북구",
+    "dong": "보문동2가",
+    "transport": 0.5636
+  },
+  {
+    "dong_code": "1129013300",
+    "gu": "성북구",
+    "dong": "정릉동",
+    "transport": 0.4231
+  },
+  {
+    "dong_code": "1129013400",
+    "gu": "성북구",
+    "dong": "길음동",
+    "transport": 0.581
+  },
+  {
+    "dong_code": "1129013500",
+    "gu": "성북구",
+    "dong": "종암동",
+    "transport": 0.6223
+  },
+  {
+    "dong_code": "1129013600",
+    "gu": "성북구",
+    "dong": "하월곡동",
+    "transport": 0.5251
+  },
+  {
+    "dong_code": "1129013700",
+    "gu": "성북구",
+    "dong": "상월곡동",
+    "transport": 0.4835
+  },
+  {
+    "dong_code": "1129013800",
+    "gu": "성북구",
+    "dong": "장위동",
+    "transport": 0.6509
+  },
+  {
+    "dong_code": "1129013900",
+    "gu": "성북구",
+    "dong": "석관동",
+    "transport": 0.4531
+  },
+  {
+    "dong_code": "1130510100",
+    "gu": "강북구",
+    "dong": "미아동",
+    "transport": 0.5873
+  },
+  {
+    "dong_code": "1130510200",
+    "gu": "강북구",
+    "dong": "번동",
+    "transport": 0.602
+  },
+  {
+    "dong_code": "1130510300",
+    "gu": "강북구",
+    "dong": "수유동",
+    "transport": 0.4624
+  },
+  {
+    "dong_code": "1130510400",
+    "gu": "강북구",
+    "dong": "우이동",
+    "transport": 0.0612
+  },
+  {
+    "dong_code": "1132010500",
+    "gu": "도봉구",
+    "dong": "쌍문동",
+    "transport": 0.5754
+  },
+  {
+    "dong_code": "1132010600",
+    "gu": "도봉구",
+    "dong": "방학동",
+    "transport": 0.4727
+  },
+  {
+    "dong_code": "1132010700",
+    "gu": "도봉구",
+    "dong": "창동",
+    "transport": 0.5384
+  },
+  {
+    "dong_code": "1132010800",
+    "gu": "도봉구",
+    "dong": "도봉동",
+    "transport": 0.3099
+  },
+  {
+    "dong_code": "1135010200",
+    "gu": "노원구",
+    "dong": "월계동",
+    "transport": 0.5178
+  },
+  {
+    "dong_code": "1135010300",
+    "gu": "노원구",
+    "dong": "공릉동",
+    "transport": 0.3814
+  },
+  {
+    "dong_code": "1135010400",
+    "gu": "노원구",
+    "dong": "하계동",
+    "transport": 0.5328
+  },
+  {
+    "dong_code": "1135010500",
+    "gu": "노원구",
+    "dong": "상계동",
+    "transport": 0.3787
+  },
+  {
+    "dong_code": "1135010600",
+    "gu": "노원구",
+    "dong": "중계동",
+    "transport": 0.4108
+  },
+  {
+    "dong_code": "1138010100",
+    "gu": "은평구",
+    "dong": "수색동",
+    "transport": 0.4447
+  },
+  {
+    "dong_code": "1138010200",
+    "gu": "은평구",
+    "dong": "녹번동",
+    "transport": 0.4346
+  },
+  {
+    "dong_code": "1138010300",
+    "gu": "은평구",
+    "dong": "불광동",
+    "transport": 0.415
+  },
+  {
+    "dong_code": "1138010400",
+    "gu": "은평구",
+    "dong": "갈현동",
+    "transport": 0.5714
+  },
+  {
+    "dong_code": "1138010500",
+    "gu": "은평구",
+    "dong": "구산동",
+    "transport": 0.5216
+  },
+  {
+    "dong_code": "1138010600",
+    "gu": "은평구",
+    "dong": "대조동",
+    "transport": 0.5598
+  },
+  {
+    "dong_code": "1138010700",
+    "gu": "은평구",
+    "dong": "응암동",
+    "transport": 0.5697
+  },
+  {
+    "dong_code": "1138010800",
+    "gu": "은평구",
+    "dong": "역촌동",
+    "transport": 0.6253
+  },
+  {
+    "dong_code": "1138010900",
+    "gu": "은평구",
+    "dong": "신사동",
+    "transport": 0.5612
+  },
+  {
+    "dong_code": "1138011000",
+    "gu": "은평구",
+    "dong": "증산동",
+    "transport": 0.4179
+  },
+  {
+    "dong_code": "1138011400",
+    "gu": "은평구",
+    "dong": "진관동",
+    "transport": 0.259
+  },
+  {
+    "dong_code": "1141010100",
+    "gu": "서대문구",
+    "dong": "충정로2가",
+    "transport": 0.8036
+  },
+  {
+    "dong_code": "1141010200",
+    "gu": "서대문구",
+    "dong": "충정로3가",
+    "transport": 0.7393
+  },
+  {
+    "dong_code": "1141010400",
+    "gu": "서대문구",
+    "dong": "미근동",
+    "transport": 0.6074
+  },
+  {
+    "dong_code": "1141010500",
+    "gu": "서대문구",
+    "dong": "냉천동",
+    "transport": 0.6981
+  },
+  {
+    "dong_code": "1141010600",
+    "gu": "서대문구",
+    "dong": "천연동",
+    "transport": 0.6403
+  },
+  {
+    "dong_code": "1141010700",
+    "gu": "서대문구",
+    "dong": "옥천동",
+    "transport": 0.4597
+  },
+  {
+    "dong_code": "1141010800",
+    "gu": "서대문구",
+    "dong": "영천동",
+    "transport": 0.6915
+  },
+  {
+    "dong_code": "1141010900",
+    "gu": "서대문구",
+    "dong": "현저동",
+    "transport": 0.5332
+  },
+  {
+    "dong_code": "1141011000",
+    "gu": "서대문구",
+    "dong": "북아현동",
+    "transport": 0.528
+  },
+  {
+    "dong_code": "1141011100",
+    "gu": "서대문구",
+    "dong": "홍제동",
+    "transport": 0.516
+  },
+  {
+    "dong_code": "1141011200",
+    "gu": "서대문구",
+    "dong": "대현동",
+    "transport": 0.4695
+  },
+  {
+    "dong_code": "1141011300",
+    "gu": "서대문구",
+    "dong": "대신동",
+    "transport": 0.6195
+  },
+  {
+    "dong_code": "1141011400",
+    "gu": "서대문구",
+    "dong": "신촌동",
+    "transport": 0.1579
+  },
+  {
+    "dong_code": "1141011500",
+    "gu": "서대문구",
+    "dong": "봉원동",
+    "transport": 0.2054
+  },
+  {
+    "dong_code": "1141011600",
+    "gu": "서대문구",
+    "dong": "창천동",
+    "transport": 0.5941
+  },
+  {
+    "dong_code": "1141011700",
+    "gu": "서대문구",
+    "dong": "연희동",
+    "transport": 0.4687
+  },
+  {
+    "dong_code": "1141011800",
+    "gu": "서대문구",
+    "dong": "홍은동",
+    "transport": 0.5389
+  },
+  {
+    "dong_code": "1141011900",
+    "gu": "서대문구",
+    "dong": "북가좌동",
+    "transport": 0.5827
+  },
+  {
+    "dong_code": "1141012000",
+    "gu": "서대문구",
+    "dong": "남가좌동",
+    "transport": 0.5723
+  },
+  {
+    "dong_code": "1144010100",
+    "gu": "마포구",
+    "dong": "아현동",
+    "transport": 0.542
+  },
+  {
+    "dong_code": "1144010200",
+    "gu": "마포구",
+    "dong": "공덕동",
+    "transport": 0.5648
+  },
+  {
+    "dong_code": "1144010300",
+    "gu": "마포구",
+    "dong": "신공덕동",
+    "transport": 0.5997
+  },
+  {
+    "dong_code": "1144010400",
+    "gu": "마포구",
+    "dong": "도화동",
+    "transport": 0.7184
+  },
+  {
+    "dong_code": "1144010500",
+    "gu": "마포구",
+    "dong": "용강동",
+    "transport": 0.5553
+  },
+  {
+    "dong_code": "1144010600",
+    "gu": "마포구",
+    "dong": "토정동",
+    "transport": 0.4502
+  },
+  {
+    "dong_code": "1144010700",
+    "gu": "마포구",
+    "dong": "마포동",
+    "transport": 0.3969
+  },
+  {
+    "dong_code": "1144010800",
+    "gu": "마포구",
+    "dong": "대흥동",
+    "transport": 0.6117
+  },
+  {
+    "dong_code": "1144010900",
+    "gu": "마포구",
+    "dong": "염리동",
+    "transport": 0.5547
+  },
+  {
+    "dong_code": "1144011000",
+    "gu": "마포구",
+    "dong": "노고산동",
+    "transport": 0.6531
+  },
+  {
+    "dong_code": "1144011100",
+    "gu": "마포구",
+    "dong": "신수동",
+    "transport": 0.5975
+  },
+  {
+    "dong_code": "1144011200",
+    "gu": "마포구",
+    "dong": "현석동",
+    "transport": 0.2278
+  },
+  {
+    "dong_code": "1144011300",
+    "gu": "마포구",
+    "dong": "구수동",
+    "transport": 0.7979
+  },
+  {
+    "dong_code": "1144011400",
+    "gu": "마포구",
+    "dong": "창전동",
+    "transport": 0.7586
+  },
+  {
+    "dong_code": "1144011500",
+    "gu": "마포구",
+    "dong": "상수동",
+    "transport": 0.5878
+  },
+  {
+    "dong_code": "1144011600",
+    "gu": "마포구",
+    "dong": "하중동",
+    "transport": 0.5685
+  },
+  {
+    "dong_code": "1144011700",
+    "gu": "마포구",
+    "dong": "신정동",
+    "transport": 0.4494
+  },
+  {
+    "dong_code": "1144011800",
+    "gu": "마포구",
+    "dong": "당인동",
+    "transport": 0.1403
+  },
+  {
+    "dong_code": "1144012000",
+    "gu": "마포구",
+    "dong": "서교동",
+    "transport": 0.6546
+  },
+  {
+    "dong_code": "1144012100",
+    "gu": "마포구",
+    "dong": "동교동",
+    "transport": 0.6318
+  },
+  {
+    "dong_code": "1144012200",
+    "gu": "마포구",
+    "dong": "합정동",
+    "transport": 0.473
+  },
+  {
+    "dong_code": "1144012300",
+    "gu": "마포구",
+    "dong": "망원동",
+    "transport": 0.5701
+  },
+  {
+    "dong_code": "1144012400",
+    "gu": "마포구",
+    "dong": "연남동",
+    "transport": 0.5821
+  },
+  {
+    "dong_code": "1144012500",
+    "gu": "마포구",
+    "dong": "성산동",
+    "transport": 0.5204
+  },
+  {
+    "dong_code": "1144012600",
+    "gu": "마포구",
+    "dong": "중동",
+    "transport": 0.5115
+  },
+  {
+    "dong_code": "1144012700",
+    "gu": "마포구",
+    "dong": "상암동",
+    "transport": 0.3834
+  },
+  {
+    "dong_code": "1147010100",
+    "gu": "양천구",
+    "dong": "신정동",
+    "transport": 0.5091
+  },
+  {
+    "dong_code": "1147010200",
+    "gu": "양천구",
+    "dong": "목동",
+    "transport": 0.4447
+  },
+  {
+    "dong_code": "1147010300",
+    "gu": "양천구",
+    "dong": "신월동",
+    "transport": 0.4421
+  },
+  {
+    "dong_code": "1150010100",
+    "gu": "강서구",
+    "dong": "염창동",
+    "transport": 0.4894
+  },
+  {
+    "dong_code": "1150010200",
+    "gu": "강서구",
+    "dong": "등촌동",
+    "transport": 0.5427
+  },
+  {
+    "dong_code": "1150010300",
+    "gu": "강서구",
+    "dong": "화곡동",
+    "transport": 0.559
+  },
+  {
+    "dong_code": "1150010400",
+    "gu": "강서구",
+    "dong": "가양동",
+    "transport": 0.4589
+  },
+  {
+    "dong_code": "1150010500",
+    "gu": "강서구",
+    "dong": "마곡동",
+    "transport": 0.4103
+  },
+  {
+    "dong_code": "1150010600",
+    "gu": "강서구",
+    "dong": "내발산동",
+    "transport": 0.5432
+  },
+  {
+    "dong_code": "1150010700",
+    "gu": "강서구",
+    "dong": "외발산동",
+    "transport": 0.4481
+  },
+  {
+    "dong_code": "1150010800",
+    "gu": "강서구",
+    "dong": "공항동",
+    "transport": 0.4127
+  },
+  {
+    "dong_code": "1150010900",
+    "gu": "강서구",
+    "dong": "방화동",
+    "transport": 0.453
+  },
+  {
+    "dong_code": "1150011000",
+    "gu": "강서구",
+    "dong": "개화동",
+    "transport": 0.1075
+  },
+  {
+    "dong_code": "1150011100",
+    "gu": "강서구",
+    "dong": "과해동",
+    "transport": 0.0
+  },
+  {
+    "dong_code": "1150011300",
+    "gu": "강서구",
+    "dong": "오쇠동",
+    "transport": 0.0774
+  },
+  {
+    "dong_code": "1153010100",
+    "gu": "구로구",
+    "dong": "신도림동",
+    "transport": 0.5621
+  },
+  {
+    "dong_code": "1153010200",
+    "gu": "구로구",
+    "dong": "구로동",
+    "transport": 0.5571
+  },
+  {
+    "dong_code": "1153010300",
+    "gu": "구로구",
+    "dong": "가리봉동",
+    "transport": 0.4953
+  },
+  {
+    "dong_code": "1153010600",
+    "gu": "구로구",
+    "dong": "고척동",
+    "transport": 0.5602
+  },
+  {
+    "dong_code": "1153010700",
+    "gu": "구로구",
+    "dong": "개봉동",
+    "transport": 0.5667
+  },
+  {
+    "dong_code": "1153010800",
+    "gu": "구로구",
+    "dong": "오류동",
+    "transport": 0.4747
+  },
+  {
+    "dong_code": "1153010900",
+    "gu": "구로구",
+    "dong": "궁동",
+    "transport": 0.4033
+  },
+  {
+    "dong_code": "1153011000",
+    "gu": "구로구",
+    "dong": "온수동",
+    "transport": 0.4774
+  },
+  {
+    "dong_code": "1153011100",
+    "gu": "구로구",
+    "dong": "천왕동",
+    "transport": 0.467
+  },
+  {
+    "dong_code": "1153011200",
+    "gu": "구로구",
+    "dong": "항동",
+    "transport": 0.4896
+  },
+  {
+    "dong_code": "1154510100",
+    "gu": "금천구",
+    "dong": "가산동",
+    "transport": 0.6229
+  },
+  {
+    "dong_code": "1154510200",
+    "gu": "금천구",
+    "dong": "독산동",
+    "transport": 0.5341
+  },
+  {
+    "dong_code": "1154510300",
+    "gu": "금천구",
+    "dong": "시흥동",
+    "transport": 0.4982
+  },
+  {
+    "dong_code": "1156010100",
+    "gu": "영등포구",
+    "dong": "영등포동",
+    "transport": 0.51
+  },
+  {
+    "dong_code": "1156010200",
+    "gu": "영등포구",
+    "dong": "영등포동1가",
+    "transport": 0.5226
+  },
+  {
+    "dong_code": "1156010300",
+    "gu": "영등포구",
+    "dong": "영등포동2가",
+    "transport": 0.468
+  },
+  {
+    "dong_code": "1156010400",
+    "gu": "영등포구",
+    "dong": "영등포동3가",
+    "transport": 0.693
+  },
+  {
+    "dong_code": "1156010500",
+    "gu": "영등포구",
+    "dong": "영등포동4가",
+    "transport": 0.6193
+  },
+  {
+    "dong_code": "1156010600",
+    "gu": "영등포구",
+    "dong": "영등포동5가",
+    "transport": 0.5665
+  },
+  {
+    "dong_code": "1156010700",
+    "gu": "영등포구",
+    "dong": "영등포동6가",
+    "transport": 0.6252
+  },
+  {
+    "dong_code": "1156010800",
+    "gu": "영등포구",
+    "dong": "영등포동7가",
+    "transport": 0.6217
+  },
+  {
+    "dong_code": "1156010900",
+    "gu": "영등포구",
+    "dong": "영등포동8가",
+    "transport": 0.6847
+  },
+  {
+    "dong_code": "1156011000",
+    "gu": "영등포구",
+    "dong": "여의도동",
+    "transport": 0.2948
+  },
+  {
+    "dong_code": "1156011100",
+    "gu": "영등포구",
+    "dong": "당산동1가",
+    "transport": 0.503
+  },
+  {
+    "dong_code": "1156011200",
+    "gu": "영등포구",
+    "dong": "당산동2가",
+    "transport": 0.6789
+  },
+  {
+    "dong_code": "1156011300",
+    "gu": "영등포구",
+    "dong": "당산동3가",
+    "transport": 0.5176
+  },
+  {
+    "dong_code": "1156011400",
+    "gu": "영등포구",
+    "dong": "당산동4가",
+    "transport": 0.4757
+  },
+  {
+    "dong_code": "1156011500",
+    "gu": "영등포구",
+    "dong": "당산동5가",
+    "transport": 0.6911
+  },
+  {
+    "dong_code": "1156011600",
+    "gu": "영등포구",
+    "dong": "당산동6가",
+    "transport": 0.5924
+  },
+  {
+    "dong_code": "1156011700",
+    "gu": "영등포구",
+    "dong": "당산동",
+    "transport": 0.4972
+  },
+  {
+    "dong_code": "1156011800",
+    "gu": "영등포구",
+    "dong": "도림동",
+    "transport": 0.6094
+  },
+  {
+    "dong_code": "1156011900",
+    "gu": "영등포구",
+    "dong": "문래동1가",
+    "transport": 0.4585
+  },
+  {
+    "dong_code": "1156012000",
+    "gu": "영등포구",
+    "dong": "문래동2가",
+    "transport": 0.5862
+  },
+  {
+    "dong_code": "1156012100",
+    "gu": "영등포구",
+    "dong": "문래동3가",
+    "transport": 0.5642
+  },
+  {
+    "dong_code": "1156012200",
+    "gu": "영등포구",
+    "dong": "문래동4가",
+    "transport": 0.5006
+  },
+  {
+    "dong_code": "1156012300",
+    "gu": "영등포구",
+    "dong": "문래동5가",
+    "transport": 0.4774
+  },
+  {
+    "dong_code": "1156012400",
+    "gu": "영등포구",
+    "dong": "문래동6가",
+    "transport": 0.5198
+  },
+  {
+    "dong_code": "1156012500",
+    "gu": "영등포구",
+    "dong": "양평동1가",
+    "transport": 0.6285
+  },
+  {
+    "dong_code": "1156012600",
+    "gu": "영등포구",
+    "dong": "양평동2가",
+    "transport": 0.5961
+  },
+  {
+    "dong_code": "1156012700",
+    "gu": "영등포구",
+    "dong": "양평동3가",
+    "transport": 0.5376
+  },
+  {
+    "dong_code": "1156012800",
+    "gu": "영등포구",
+    "dong": "양평동4가",
+    "transport": 0.4888
+  },
+  {
+    "dong_code": "1156012900",
+    "gu": "영등포구",
+    "dong": "양평동5가",
+    "transport": 0.5347
+  },
+  {
+    "dong_code": "1156013000",
+    "gu": "영등포구",
+    "dong": "양평동6가",
+    "transport": 0.569
+  },
+  {
+    "dong_code": "1156013100",
+    "gu": "영등포구",
+    "dong": "양화동",
+    "transport": 0.2083
+  },
+  {
+    "dong_code": "1156013200",
+    "gu": "영등포구",
+    "dong": "신길동",
+    "transport": 0.613
+  },
+  {
+    "dong_code": "1156013300",
+    "gu": "영등포구",
+    "dong": "대림동",
+    "transport": 0.5784
+  },
+  {
+    "dong_code": "1159010100",
+    "gu": "동작구",
+    "dong": "노량진동",
+    "transport": 0.5271
+  },
+  {
+    "dong_code": "1159010200",
+    "gu": "동작구",
+    "dong": "상도동",
+    "transport": 0.6001
+  },
+  {
+    "dong_code": "1159010300",
+    "gu": "동작구",
+    "dong": "상도1동",
+    "transport": 0.674
+  },
+  {
+    "dong_code": "1159010400",
+    "gu": "동작구",
+    "dong": "본동",
+    "transport": 0.5832
+  },
+  {
+    "dong_code": "1159010500",
+    "gu": "동작구",
+    "dong": "흑석동",
+    "transport": 0.5428
+  },
+  {
+    "dong_code": "1159010600",
+    "gu": "동작구",
+    "dong": "동작동",
+    "transport": 0.2901
+  },
+  {
+    "dong_code": "1159010700",
+    "gu": "동작구",
+    "dong": "사당동",
+    "transport": 0.5265
+  },
+  {
+    "dong_code": "1159010800",
+    "gu": "동작구",
+    "dong": "대방동",
+    "transport": 0.5882
+  },
+  {
+    "dong_code": "1159010900",
+    "gu": "동작구",
+    "dong": "신대방동",
+    "transport": 0.5224
+  },
+  {
+    "dong_code": "1162010100",
+    "gu": "관악구",
+    "dong": "봉천동",
+    "transport": 0.5278
+  },
+  {
+    "dong_code": "1162010200",
+    "gu": "관악구",
+    "dong": "신림동",
+    "transport": 0.4215
+  },
+  {
+    "dong_code": "1162010300",
+    "gu": "관악구",
+    "dong": "남현동",
+    "transport": 0.1214
+  },
+  {
+    "dong_code": "1165010100",
+    "gu": "서초구",
+    "dong": "방배동",
+    "transport": 0.5114
+  },
+  {
+    "dong_code": "1165010200",
+    "gu": "서초구",
+    "dong": "양재동",
+    "transport": 0.4798
+  },
+  {
+    "dong_code": "1165010300",
+    "gu": "서초구",
+    "dong": "우면동",
+    "transport": 0.3319
+  },
+  {
+    "dong_code": "1165010400",
+    "gu": "서초구",
+    "dong": "원지동",
+    "transport": 0.0268
+  },
+  {
+    "dong_code": "1165010600",
+    "gu": "서초구",
+    "dong": "잠원동",
+    "transport": 0.397
+  },
+  {
+    "dong_code": "1165010700",
+    "gu": "서초구",
+    "dong": "반포동",
+    "transport": 0.436
+  },
+  {
+    "dong_code": "1165010800",
+    "gu": "서초구",
+    "dong": "서초동",
+    "transport": 0.5593
+  },
+  {
+    "dong_code": "1165010900",
+    "gu": "서초구",
+    "dong": "내곡동",
+    "transport": 0.1479
+  },
+  {
+    "dong_code": "1165011000",
+    "gu": "서초구",
+    "dong": "염곡동",
+    "transport": 0.2848
+  },
+  {
+    "dong_code": "1165011100",
+    "gu": "서초구",
+    "dong": "신원동",
+    "transport": 0.3395
+  },
+  {
+    "dong_code": "1168010100",
+    "gu": "강남구",
+    "dong": "역삼동",
+    "transport": 0.4898
+  },
+  {
+    "dong_code": "1168010300",
+    "gu": "강남구",
+    "dong": "개포동",
+    "transport": 0.4067
+  },
+  {
+    "dong_code": "1168010400",
+    "gu": "강남구",
+    "dong": "청담동",
+    "transport": 0.3633
+  },
+  {
+    "dong_code": "1168010500",
+    "gu": "강남구",
+    "dong": "삼성동",
+    "transport": 0.4362
+  },
+  {
+    "dong_code": "1168010600",
+    "gu": "강남구",
+    "dong": "대치동",
+    "transport": 0.4604
+  },
+  {
+    "dong_code": "1168010700",
+    "gu": "강남구",
+    "dong": "신사동",
+    "transport": 0.4142
+  },
+  {
+    "dong_code": "1168010800",
+    "gu": "강남구",
+    "dong": "논현동",
+    "transport": 0.4477
+  },
+  {
+    "dong_code": "1168011000",
+    "gu": "강남구",
+    "dong": "압구정동",
+    "transport": 0.2254
+  },
+  {
+    "dong_code": "1168011100",
+    "gu": "강남구",
+    "dong": "세곡동",
+    "transport": 0.4129
+  },
+  {
+    "dong_code": "1168011200",
+    "gu": "강남구",
+    "dong": "자곡동",
+    "transport": 0.2891
+  },
+  {
+    "dong_code": "1168011300",
+    "gu": "강남구",
+    "dong": "율현동",
+    "transport": 0.3167
+  },
+  {
+    "dong_code": "1168011400",
+    "gu": "강남구",
+    "dong": "일원동",
+    "transport": 0.4097
+  },
+  {
+    "dong_code": "1168011500",
+    "gu": "강남구",
+    "dong": "수서동",
+    "transport": 0.3617
+  },
+  {
+    "dong_code": "1168011800",
+    "gu": "강남구",
+    "dong": "도곡동",
+    "transport": 0.4862
+  },
+  {
+    "dong_code": "1171010100",
+    "gu": "송파구",
+    "dong": "잠실동",
+    "transport": 0.339
+  },
+  {
+    "dong_code": "1171010200",
+    "gu": "송파구",
+    "dong": "신천동",
+    "transport": 0.2749
+  },
+  {
+    "dong_code": "1171010300",
+    "gu": "송파구",
+    "dong": "풍납동",
+    "transport": 0.4128
+  },
+  {
+    "dong_code": "1171010400",
+    "gu": "송파구",
+    "dong": "송파동",
+    "transport": 0.4734
+  },
+  {
+    "dong_code": "1171010500",
+    "gu": "송파구",
+    "dong": "석촌동",
+    "transport": 0.4868
+  },
+  {
+    "dong_code": "1171010600",
+    "gu": "송파구",
+    "dong": "삼전동",
+    "transport": 0.416
+  },
+  {
+    "dong_code": "1171010700",
+    "gu": "송파구",
+    "dong": "가락동",
+    "transport": 0.4715
+  },
+  {
+    "dong_code": "1171010800",
+    "gu": "송파구",
+    "dong": "문정동",
+    "transport": 0.5163
+  },
+  {
+    "dong_code": "1171010900",
+    "gu": "송파구",
+    "dong": "장지동",
+    "transport": 0.4988
+  },
+  {
+    "dong_code": "1171011100",
+    "gu": "송파구",
+    "dong": "방이동",
+    "transport": 0.368
+  },
+  {
+    "dong_code": "1171011200",
+    "gu": "송파구",
+    "dong": "오금동",
+    "transport": 0.5141
+  },
+  {
+    "dong_code": "1171011300",
+    "gu": "송파구",
+    "dong": "거여동",
+    "transport": 0.4643
+  },
+  {
+    "dong_code": "1171011400",
+    "gu": "송파구",
+    "dong": "마천동",
+    "transport": 0.4737
+  },
+  {
+    "dong_code": "1174010100",
+    "gu": "강동구",
+    "dong": "명일동",
+    "transport": 0.5133
+  },
+  {
+    "dong_code": "1174010200",
+    "gu": "강동구",
+    "dong": "고덕동",
+    "transport": 0.432
+  },
+  {
+    "dong_code": "1174010300",
+    "gu": "강동구",
+    "dong": "상일동",
+    "transport": 0.478
+  },
+  {
+    "dong_code": "1174010500",
+    "gu": "강동구",
+    "dong": "길동",
+    "transport": 0.5083
+  },
+  {
+    "dong_code": "1174010600",
+    "gu": "강동구",
+    "dong": "둔촌동",
+    "transport": 0.4495
+  },
+  {
+    "dong_code": "1174010700",
+    "gu": "강동구",
+    "dong": "암사동",
+    "transport": 0.3039
+  },
+  {
+    "dong_code": "1174010800",
+    "gu": "강동구",
+    "dong": "성내동",
+    "transport": 0.567
+  },
+  {
+    "dong_code": "1174010900",
+    "gu": "강동구",
+    "dong": "천호동",
+    "transport": 0.4515
+  },
+  {
+    "dong_code": "1174011000",
+    "gu": "강동구",
+    "dong": "강일동",
+    "transport": 0.4991
+  }
+]
