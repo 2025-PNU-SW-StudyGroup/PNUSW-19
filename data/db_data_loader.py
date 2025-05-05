@@ -1,8 +1,10 @@
-import psycopg2
+import asyncio
+import asyncpg
 import json
 from datetime import datetime
 from dotenv import load_dotenv
 import os
+from tqdm.asyncio import tqdm
 
 load_dotenv()
 
@@ -15,7 +17,7 @@ def safe_date(date_str):
     except:
         return None
 
-def insert_property_row(cur, prop):
+async def insert_property_row(conn, prop):
     query = """
     INSERT INTO property (
         monthly_rent_cost, deposit, area, floor, total_floor, room_type,
@@ -26,111 +28,118 @@ def insert_property_row(cur, prop):
         main_image_url, maintenance_cost, rooms_bathrooms, duplex,
         available_move_in_date
     ) VALUES (
-        %(monthly_rent_cost)s, %(deposit)s, %(area)s, %(floor)s, %(total_floors)s, %(room_type)s,
-        %(property_type)s, %(features)s, %(direction)s,
-        ST_GeomFromText(%(location)s, 4326), %(description)s,
-        %(agent_name)s, %(agent_office)s, %(agent_phone)s, %(agent_address)s, %(agent_registration_no)s,
-        %(property_number)s, %(administrative_code)s, %(property_name)s, %(transaction_type)s,
-        %(confirmation_type)s, %(supply_area)s, %(property_confirmation_date)s,
-        %(main_image_url)s, %(maintenance_cost)s, %(rooms_bathrooms)s, %(duplex)s,
-        %(available_move_in_date)s
-    ) 
-    ON CONFLICT (property_number) DO NOTHING
+        $1, $2, $3, $4, $5, $6,
+        $7, $8, $9, ST_GeomFromText($10, 4326), $11,
+        $12, $13, $14, $15, $16,
+        $17, $18, $19, $20,
+        $21, $22, $23,
+        $24, $25, $26, $27,
+        $28
+    ) ON CONFLICT (property_number) DO NOTHING
     RETURNING id;
     """
-    values = {
-        "monthly_rent_cost": safe_get(prop, "monthly_rent_cost", 0),
-        "deposit": safe_get(prop, "deposit", 0),
-        "area": safe_get(prop, "area"),
-        "floor": safe_get(prop, "floor"),
-        "total_floors": safe_get(prop, "total_floors"),
-        "room_type": safe_get(prop, "room_type"),
-        "property_type": safe_get(prop, "property_type"),
-        "features": safe_get(prop, "features"),
-        "direction": safe_get(prop, "direction"),
-        "location": f"POINT({prop['location'].split('(')[1]}" if prop.get("location") else "POINT(0 0)",
-        "description": safe_get(prop, "description"),
-        "agent_name": safe_get(prop, "agent_name", "미상"),
-        "agent_office": safe_get(prop, "agent_office", "미상"),
-        "agent_phone": safe_get(prop, "agent_phone", ""),
-        "agent_address": safe_get(prop, "agent_address", ""),
-        "agent_registration_no": safe_get(prop, "agent_registration_no", ""),
-        "property_number": safe_get(prop, "property_number"),
-        "administrative_code": safe_get(prop, "administrative_code"),
-        "property_name": safe_get(prop, "property_name"),
-        "transaction_type": safe_get(prop, "transaction_type"),
-        "confirmation_type": safe_get(prop, "confirmation_type"),
-        "supply_area": safe_get(prop, "supply_area"),
-        "property_confirmation_date": safe_date(prop.get("property_confirmation_date", "")),
-        "main_image_url": safe_get(prop, "main_image_url"),
-        "maintenance_cost": safe_get(prop, "maintenance_cost", 0),
-        "rooms_bathrooms": safe_get(prop, "rooms_bathrooms"),
-        "duplex": prop.get("duplex", False),
-        "available_move_in_date": safe_get(prop, "available_move_in_date")
-    }
 
-    cur.execute(query, values)
-    return cur.fetchone()[0]
+    values = (
+        safe_get(prop, "monthly_rent_cost", 0),
+        safe_get(prop, "deposit", 0),
+        safe_get(prop, "area"),
+        safe_get(prop, "floor"),
+        safe_get(prop, "total_floors"),
+        safe_get(prop, "room_type"),
+        safe_get(prop, "property_type"),
+        safe_get(prop, "features"),
+        safe_get(prop, "direction"),
+        f"POINT({prop['location'].split('(')[1]}" if prop.get("location") else "POINT(0 0)",
+        safe_get(prop, "description"),
+        safe_get(prop, "agent_name", "미상"),
+        safe_get(prop, "agent_office", "미상"),
+        safe_get(prop, "agent_phone", ""),
+        safe_get(prop, "agent_address", ""),
+        safe_get(prop, "agent_registration_no", ""),
+        safe_get(prop, "property_number"),
+        safe_get(prop, "administrative_code"),
+        safe_get(prop, "property_name"),
+        safe_get(prop, "transaction_type"),
+        safe_get(prop, "confirmation_type"),
+        safe_get(prop, "supply_area"),
+        safe_date(prop.get("property_confirmation_date", "")),
+        safe_get(prop, "main_image_url"),
+        safe_get(prop, "maintenance_cost", 0),
+        safe_get(prop, "rooms_bathrooms"),
+        prop.get("duplex", False),
+        safe_get(prop, "available_move_in_date")
+    )
 
-def insert_tags_and_photos(cur, property_id, tags, photos):
-    # 태그 삽입
+    row = await conn.fetchrow(query, *values)
+    return row["id"] if row else None
+
+async def insert_tags_and_photos(conn, property_id, tags, photos):
     if tags:
         for tag in [t.strip() for t in tags.split(",") if t.strip()]:
-            cur.execute("INSERT INTO property_tag (property_id, name) VALUES (%s, %s);", (property_id, tag))
-
-    # 사진 삽입
+            await conn.execute(
+                "INSERT INTO property_tag (property_id, name) VALUES ($1, $2);", property_id, tag
+            )
     if photos:
         for idx, photo_url in enumerate(photos):
             if not photo_url:
                 continue
             image_type = "main" if idx == 0 else "sub"
             order = idx + 1
-            cur.execute("""
+            await conn.execute(
+                """
                 INSERT INTO property_photo (property_id, image_url, image_type, "order")
-                VALUES (%s, %s, %s, %s);
-            """, (property_id, photo_url, image_type, order))
+                VALUES ($1, $2, $3, $4);
+                """, property_id, photo_url, image_type, order
+            )
 
-def load_jsonl_to_postgres(file_path, batch_size=100):
-    conn = psycopg2.connect(
+async def process_single_property(pool, prop, sem, progress):
+    async with sem:
+        async with pool.acquire() as conn:
+            try:
+                property_id = await insert_property_row(conn, prop)
+                if property_id:
+                    await insert_tags_and_photos(conn, property_id, prop.get("tags", ""), prop.get("photo", []))
+                    status = "success"
+                else:
+                    status = "skipped"
+            except Exception as e:
+                print(f"⚠️ [삽입 실패] property_number={prop.get('property_number')} → {e}")
+                status = "fail"
+            progress.update(1)
+            return status
+
+async def load_jsonl_to_postgres(file_path, max_lines=None, concurrency=10):
+    pool = await asyncpg.create_pool(
         host=os.getenv("DB_HOST"),
         database=os.getenv("DB_NAME"),
         user=os.getenv("DB_USER"),
-        password=os.getenv("DB_PASSWORD")
+        password=os.getenv("DB_PASSWORD"),
+        min_size=5,
+        max_size=concurrency
     )
-    cur = conn.cursor()
 
     with open(file_path, "r", encoding="utf-8") as f:
-        batch = []
-        for line in f:
-            row = json.loads(line.strip())
-            batch.append(row)
+        lines = list(f)
+        if max_lines is not None:
+            lines = lines[:max_lines]
+        props = [json.loads(line.strip()) for line in lines]
 
-            if len(batch) >= batch_size:
-                process_batch(batch, cur, conn)
-                batch = []
+    sem = asyncio.Semaphore(concurrency)
+    progress = tqdm(total=len(props), desc="📦 비동기 매물 적재 중", unit="건")
+    tasks = [process_single_property(pool, prop, sem, progress) for prop in props]
+    results = await asyncio.gather(*tasks)
 
-        if batch:
-            process_batch(batch, cur, conn)
+    await pool.close()
+    progress.close()
 
-    cur.close()
-    conn.close()
-    print("✅ 전체 데이터 적재 완료.")
+    success_count = results.count("success")
+    fail_count = results.count("fail")
+    skipped_count = results.count("skipped")
+    print(f"\n✅ 전체 데이터 적재 완료.")
+    print(f"   - 총 성공: {success_count}건")
+    print(f"   - 총 실패: {fail_count}건")
+    print(f"   - 중복 스킵: {skipped_count}건")
 
-def process_batch(batch, cur, conn):
-    for prop in batch:
-        try:
-            property_number = insert_property_row(cur, prop)
-            if property_number:
-                insert_tags_and_photos(
-                    cur,
-                    property_number,
-                    prop.get("tags", ""),
-                    prop.get("photo", [])
-                )
-            conn.commit()  # 👉 여기서 커밋!
-        except Exception as e:
-            conn.rollback()  # 이 row만 롤백
-            print(f"⚠️ [삽입 실패] property_number={prop.get('property_number')} → {e}")
-
-# 실행 예시
-load_jsonl_to_postgres("data/progress.jsonl")
+# 실행
+if __name__ == "__main__":
+    asyncio.run(load_jsonl_to_postgres("data/property_crawler/progress.jsonl"))
