@@ -9,3 +9,4 @@ data/public_data/*csv
 data/property_crawler/*jsonl
 data/property_crawler/logs
 __pycache__/
+app/logs
