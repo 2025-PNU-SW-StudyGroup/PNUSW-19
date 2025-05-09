@@ -33,7 +33,50 @@ from math import exp
 def decay_score(dist, decay):
     if dist is None:
         return 0
-    return round(exp(-dist / decay), 4)
+    return round(1 / (1 + dist / decay), 4)
+
+def adjusted_decay_score_with_weights(
+    dist, count=0, dong_score=0,
+    decay=1000, max_count=10,  # 항목별로 다르게 설정
+    base_weight=0.7, count_weight=0.1, dong_weight=0.2
+):
+    if dist is None:
+        return 0.0
+    base_score = 1 / (1 + (dist / decay) ** 1.5)
+    count_score = min(1.0, math.log1p(count) / math.log1p(max_count))
+    score = (
+        base_score * base_weight +
+        count_score * count_weight +
+        dong_score * dong_weight
+    )
+    return round(score, 4)
+
+def adjusted_quiet_score(
+    base_score: float,
+    infra_count: int = 0,
+    avg_dist: float = None,
+    count_weight: float = 0.05,
+    distance_boost_decay: float = 500,
+    max_adjust: float = 0.15
+) -> float:
+    # 기준선
+    ideal_count = 50
+    ideal_distance = 500
+
+    # 음식점 수 기반 조정: count가 적으면 보너스, 많으면 감점
+    count_diff = ideal_count - infra_count  # +일수록 보너스
+    count_adjust = count_diff * count_weight
+    count_adjust = max(-max_adjust, min(max_adjust, count_adjust))
+
+    # 거리 기반 조정: 멀수록 보너스
+    dist_adjust = 0.0
+    if avg_dist is not None:
+        dist_adjust = max_adjust * (1 - math.exp(-avg_dist / distance_boost_decay)) - 0.03
+        dist_adjust = max(-max_adjust, min(max_adjust, dist_adjust))
+
+    total_adjust = count_adjust + dist_adjust
+    final_score = base_score + total_adjust
+    return round(min(1.0, max(0.0, final_score)), 4)
 
 def parse_point_string(point_str):
     try:
@@ -65,6 +108,9 @@ async def recommend_properties(input_data: DongPropertiesInput, db: AsyncSession
     page, page_size = input_data.page, input_data.page_size
     quiet_score_map = {input_data.dong_code: input_data.quiet_score}
     youth_score_map = {input_data.dong_code: input_data.youth_score}
+    security_score_map = {input_data.dong_code: input_data.security_score}
+    infra_score_map = {input_data.dong_code: input_data.infra_score}
+    transport_score_map = {input_data.dong_code: input_data.transport_score}    
 
     if not property_ids:
         return {"total": 0, "total_pages": 0, "page": page, "page_size": page_size, "results": []}
@@ -166,10 +212,39 @@ async def recommend_properties(input_data: DongPropertiesInput, db: AsyncSession
             print(f"[commute 오류] 매물 ID: {pid}, location: {location_str}, job: {user_input.job_location}")
 
         base_scores = {
-            "infra_score": decay_score(infra_dist_map.get(pid), 500),
-            "security_score": decay_score(cctv_dist_map.get(pid), 300),
-            "transport_score": decay_score(bus_dist_map.get(pid), 300),
-            "quiet_score": quiet_score_map.get(dong_code, 0),
+            "infra_score": adjusted_decay_score_with_weights(
+                dist=infra_dist_map.get(pid),
+                count=infra_map.get(pid, 0),
+                dong_score=infra_score_map.get(dong_code, 0),
+                max_count=200  # 음식점
+            ),
+            "security_score": adjusted_decay_score_with_weights(
+                dist=cctv_dist_map.get(pid),
+                count=cctv_map.get(pid, 0),
+                dong_score=security_score_map.get(dong_code, 0),
+                max_count=500  # CCTV
+            ),
+            "transport_score": round(
+                (
+                    adjusted_decay_score_with_weights(
+                        dist=bus_dist_map.get(pid),
+                        count=bus_count_map.get(pid, 0),
+                        dong_score=transport_score_map.get(dong_code, 0),
+                        max_count=50
+                    ) * 0.4 +
+                    adjusted_decay_score_with_weights(
+                        dist=subway_dist_map.get(pid),
+                        count=subway_count_map.get(pid, 0),
+                        dong_score=transport_score_map.get(dong_code, 0),
+                        max_count=5
+                    ) * 0.6
+                ), 4
+            ),
+            "quiet_score": adjusted_quiet_score(
+                base_score=quiet_score_map.get(dong_code, 0),
+                infra_count=infra_map.get(pid, 0),
+                avg_dist=infra_dist_map.get(pid)
+            ),
             "youth_score": youth_score_map.get(dong_code, 0),
             "commute_score": decay_score(commute_min * 60 if commute_min else None, 45 * 60),
         }

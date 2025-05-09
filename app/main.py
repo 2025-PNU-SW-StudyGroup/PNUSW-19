@@ -28,8 +28,9 @@ app = FastAPI(
       1.0.1 : API 문서화 및 버전 관리 추가
       1.0.2 : 유저 선호 우선순위 값 Safety -> Security로 변경
       1.1.0 : Gunicorn 프로덕션 배포
+      1.1.1 : 매물 점수 계산 방식 세부 조정 (감쇠 함수 완만하게, +/-양방향 조정)
     """,
-    version="1.1.0",
+    version="1.1.1",
     docs_url="/docs",
     redoc_url="/redoc"
 )

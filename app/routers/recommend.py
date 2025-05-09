@@ -103,7 +103,6 @@ router = APIRouter(tags=["추천 API"])
     2. property_count 내림차순
     3. commute_min 오름차순
     
-    
     **** 아래 Example 요청 파라미터 참고. ****
     예시 데이터에 입력한 직장 위치는 서울시 광진구 광장동에 위치한 신광빌딩이라는 곳.
     - 서울 광진구 아차산로76길 5
@@ -180,6 +179,22 @@ async def recommend_area(user_input: UserInput, db: AsyncSession = Depends(get_d
     - infra_count, cctv_count, bus_count, subway_count : 주변 시설물 수 및 평균 거리
     - 각 점수별 세부 항목 포함 (infra_score 등)
     
+    -------------[업데이트 내역]-------------
+    - 거리 기반 감쇠 점수 개선 : 기존 지수 함수에서 1 / (1 + dist / decay) sigmoid 함수로 완만하게 변경
+    - 거리 + 개수 + 동 단위 특성 반영한 복합 스코어 반영 : infra_score, security_score, transport_score 등은 다음 3요소의 가중 평균으로 계산
+        base_score: 거리 기반 감쇠 점수
+        count_score: 시설 수에 따른 점수 (로그 정규화)
+        dong_score: 해당 행정동의 전체 특성 점수
+        (base 70%, count 10%, dong 20%)
+    - 교통 점수는 버스 + 지하철 가중 평균 버스점수 * 0.4 + 지하철점수 * 0.6
+    - 조용함 점수 (quiet_score) 양방향 조정 개선
+        기본은 해당 동의 조용함 점수 (quiet_score_map)
+        주변 음식점 수와 평균 거리 기반으로 조용하면 보너스, 복잡하면 감점
+        이상적인 조용함 기준:
+        음식점 개수 ≈ 50개, 평균 거리 ≈ 500m
+        이 기준보다 멀고 적으면 보너스, 가깝고 많으면 페널티가 부여됨
+        조정값은 -0.15 ~ +0.15 사이로 제한되어, 조용함 점수를 자연스럽게 부드럽게 조정
+
     
     **** 아래 Example value 요청 파라미터 참고. ****
     {
