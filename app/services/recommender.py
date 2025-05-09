@@ -12,6 +12,9 @@ from sqlalchemy import select, func, and_, or_
 from sklearn.preprocessing import MinMaxScaler
 from collections import defaultdict
 import math
+import asyncio
+
+MAX_CHUNK = 100
 
 TRANSPORT_PROFILE = {
         "car": {"speed_kmh": 25, "correction_factor": 2.5},
@@ -20,6 +23,10 @@ TRANSPORT_PROFILE = {
 
 def float_or_none(val):
     return float(val) if isinstance(val, Decimal) else None
+
+def chunk_list(lst, chunk_size):
+    for i in range(0, len(lst), chunk_size):
+        yield lst[i:i + chunk_size]
 
 from math import exp
 
@@ -62,26 +69,38 @@ async def recommend_properties(input_data: DongPropertiesInput, db: AsyncSession
     if not property_ids:
         return {"total": 0, "total_pages": 0, "page": page, "page_size": page_size, "results": []}
 
-    result = await db.execute(
-        select(Property, func.ST_AsText(Property.location).label("location_wkt"))
-        .where(Property.id.in_(property_ids))
-    )
-    rows = result.all()
+    rows = []
+    for chunk in chunk_list(property_ids, MAX_CHUNK):
+        result = await db.execute(
+            select(Property, func.ST_AsText(Property.location).label("location_wkt"))
+            .where(Property.id.in_(chunk))
+        )
+        rows.extend(result.all())
 
     async def fetch_maps(model):
-        rows = await db.execute(
-            select(
-                model.property_id,
-                func.count().label("count"),
-                func.avg(model.distance_meters).label("avg_distance")
-            ).where(model.property_id.in_(property_ids)).group_by(model.property_id)
-        )
-        return rows.fetchall()
+        async def fetch_chunk(chunk):
+            result = await db.execute(
+                select(
+                    model.property_id,
+                    func.count().label("count"),
+                    func.avg(model.distance_meters).label("avg_distance")
+                ).where(model.property_id.in_(chunk)).group_by(model.property_id)
+            )
+            return result.fetchall()
 
-    cctv_data = await fetch_maps(PropertyCCTVMap)
-    infra_data = await fetch_maps(PropertyRestFoodPermitMap)
-    bus_data = await fetch_maps(PropertyBusStopMap)
-    subway_data = await fetch_maps(PropertySubwayMap)
+        tasks = [fetch_chunk(chunk) for chunk in chunk_list(property_ids, MAX_CHUNK)]
+        results = await asyncio.gather(*tasks)
+        all_rows = []
+        for res in results:
+            all_rows.extend(res)
+        return all_rows
+
+    cctv_data, infra_data, bus_data, subway_data = await asyncio.gather(
+        fetch_maps(PropertyCCTVMap),
+        fetch_maps(PropertyRestFoodPermitMap),
+        fetch_maps(PropertyBusStopMap),
+        fetch_maps(PropertySubwayMap)
+    )
 
     cctv_map = {r.property_id: r.count for r in cctv_data}
     cctv_dist_map = {r.property_id: float(r.avg_distance) for r in cctv_data}
@@ -97,7 +116,7 @@ async def recommend_properties(input_data: DongPropertiesInput, db: AsyncSession
 
     score_map = {
         "infra": "infra_score",
-        "safety": "security_score",
+        "security": "security_score",
         "transport": "transport_score",
         "quiet": "quiet_score",
         "youth": "youth_score",
@@ -110,9 +129,9 @@ async def recommend_properties(input_data: DongPropertiesInput, db: AsyncSession
         if 0 <= age <= 34:
             user_input.priority = ["youth", "commute", "infra"]
         elif gender == "female":
-            user_input.priority = ["safety", "quiet", "commute"]
+            user_input.priority = ["security", "quiet", "commute"]
         else:
-            user_input.priority = ["commute", "infra", "safety"]
+            user_input.priority = ["commute", "infra", "security"]
 
     priority_len = len(user_input.priority)
     weights = {1: [1.0], 2: [0.6, 0.4], 3: [0.5, 0.3, 0.2]}.get(priority_len, [1.0 / priority_len] * priority_len)
@@ -230,14 +249,14 @@ def build_property_filters(budget: Budget):
         if len(budget.deposit) == 2:
             filters.append(Property.deposit.between(budget.deposit[0], budget.deposit[1]))
         elif len(budget.deposit) == 1:
-            filters.append(Property.deposit >= budget.deposit[0])
+            filters.append(Property.deposit <= budget.deposit[0])
 
     # 월세
     if budget.monthly_rent:
         if len(budget.monthly_rent) == 2:
             filters.append(Property.monthly_rent_cost.between(budget.monthly_rent[0], budget.monthly_rent[1]))
         elif len(budget.monthly_rent) == 1:
-            filters.append(Property.monthly_rent_cost >= budget.monthly_rent[0])
+            filters.append(Property.monthly_rent_cost <= budget.monthly_rent[0])
 
     # 관리비
     if budget.maintenance_cost:
@@ -251,11 +270,33 @@ def build_property_filters(budget: Budget):
         if len(budget.area) == 2:
             filters.append(Property.area.between(budget.area[0], budget.area[1]))
         elif len(budget.area) == 1:
-            filters.append(Property.area >= budget.area[0])
+            filters.append(Property.area <= budget.area[0])
 
     # 방향 (문자열 포함 여부)
     if budget.direction:
         filters.append(or_(*[Property.direction.contains(d) for d in budget.direction]))
+
+    # 방 유형
+    if budget.room_type:
+            room_conditions = []
+            for rt in budget.room_type:
+                if rt == "원룸":
+                    # rooms_bathrooms 값이 '1/1개', '1/-개', '1/0개' 등일 때
+                    room_conditions.append(
+                        Property.rooms_bathrooms.op("~")('^1/')
+                    )
+                elif rt == "투룸":
+                    room_conditions.append(
+                        Property.rooms_bathrooms.op("~")('^2/')
+                    )
+                else:  # 그 외 모든 방 개수 (3 이상 혹은 이상한 값 포함)
+                    room_conditions.append(
+                        or_(
+                            Property.rooms_bathrooms.op("~")('^[3-9]/'),
+                            Property.rooms_bathrooms == None
+                        )
+                    )
+            filters.append(or_(*room_conditions))  
 
     # 층 구조 유형
     if budget.floor_type and len(budget.floor_type) > 0:
@@ -275,6 +316,10 @@ async def recommend_dongs(user_input: UserInput, db):
     mode = "자가용"
     if "대중교통" in user_input.transportation:
         mode = "대중교통"
+    
+    # 교통수단 2개 이상 선택 시, 자가용으로 재설정
+    if len(user_input.transportation) > 1:
+        mode = "자가용"
 
     profile = TRANSPORT_PROFILE.get(mode, TRANSPORT_PROFILE["자가용"])
     speed_kmh = profile["speed_kmh"]
@@ -303,7 +348,7 @@ async def recommend_dongs(user_input: UserInput, db):
     # 4. 우선순위 가중치 반영
     score_map = {
         "infra": "infra_score",
-        "safety": "security_score",
+        "security": "security_score",
         "transport": "transport_score",
         "quiet": "quiet_score",
         "youth": "youth_score",
@@ -317,9 +362,9 @@ async def recommend_dongs(user_input: UserInput, db):
         if 0 <= age <= 34:
             user_input.priority = ["youth", "commute", "infra"]
         elif gender == "female":
-            user_input.priority = ["safety", "quiet", "commute"]
+            user_input.priority = ["security", "quiet", "commute"]
         else:
-            user_input.priority = ["commute", "infra", "safety"]
+            user_input.priority = ["commute", "infra", "security"]
     
     # 우선순위 가중치 설정
     priority_len = len(user_input.priority)
