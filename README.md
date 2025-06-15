@@ -305,6 +305,14 @@
 
 > ![image](https://github.com/user-attachments/assets/c319efee-9a95-4456-8361-7819f0fd558f)
 
+#### 3.2 데이터 명세
+
+ERD
+
+![postgres - public](https://github.com/user-attachments/assets/a24523fa-b59f-452d-b322-37e8f7f0b79c)
+
+
+https://github.com/2025-PNU-SW-StudyGroup/PNUSW-19/blob/main/%EB%B6%80%EB%8F%99%EC%82%B0_DB_%EB%AA%85%EC%84%B8%EC%84%9C.md
 
 #### 3.2. 기능설명
 
