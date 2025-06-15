@@ -330,7 +330,6 @@ https://github.com/2025-PNU-SW-StudyGroup/PNUSW-19/blob/main/%EB%B6%80%EB%8F%99%
 ![image](https://github.com/user-attachments/assets/507e1207-18fe-46e8-86b8-76d1ecfacb48)
 
 
-
 선호 지역을 선택한다.
 지도와 오른쪽버튼을 통해 검새된 매물 개수와 지역별 추천 점수에 따라 색상으로 추천 정도를 표기한다.
 ![image](https://github.com/user-attachments/assets/bb1ca445-1e57-4b6a-9642-f42fc3834535)
@@ -346,20 +345,133 @@ https://github.com/2025-PNU-SW-StudyGroup/PNUSW-19/blob/main/%EB%B6%80%EB%8F%99%
 ![image](https://github.com/user-attachments/assets/b8391b30-0dc4-4fc9-8e0e-2ae1f3e7136b)
 
 
-
-
-
-
-
-
-
-
-
-
-
 #### 3.3. 기능명세서
 
 > (https://docs.google.com/spreadsheets/d/1o6vqVKow1pzbJehgar481m9DY8YNma4WdLOtvaq4jtM/edit?gid=0#gid=0)
+
+ 🏡 부동산 맞춤형 추천 시스템 설계 및 구현
+
+## 💡 프로젝트 개요  
+사용자의 예산, 통근지, 우선순위 등을 기반으로 서울시 내 거주지를 **행정동(dong) 단위로 추천**하고, 선택한 지역 내에서 **개별 매물까지 추천**하는 AI 기반 추천 시스템입니다.
+
+---
+
+## 🔁 추천 흐름 개요
+
+```
+사용자 입력
+  ↓
+/recommend/area
+  ↓
+추천 동(dong) 리스트 제공
+  ↓
+/recommend/property
+  ↓
+해당 동 내 매물 추천
+```
+
+---
+
+## 🧭 주요 API 흐름
+
+### 1. `/recommend/area` – 행정동 추천
+
+**입력값 (user_input)**  
+- `age`, `gender`: 개인화 보정에 사용  
+- `job_location`: 통근 거리 기반 점수 계산  
+- `transportation`: 통근 수단에 따라 통근 방식 가중치 분기  
+- `budget`: 예산 조건 필터링 (보증금, 월세, 관리비, 구조 등)  
+- `priority`: 사용자 우선순위 최대 3개  
+- `max_commute_min`: 최대 통근 허용 시간
+
+**추천 로직**
+1. 서울시 모든 동(dong)에 대해 아래 6가지 지표 점수 계산:
+   - `infra`, `security`, `quiet`, `youth`, `transport`, `commute`
+2. 개인화 보정 (나이, 성별 기반)
+3. 우선순위 기반 가중합
+4. 행정동을 구(gu) 단위로 그룹화하여 추천 리스트 생성
+
+**동 정렬 기준**
+1. `total_score` 내림차순
+2. `property_count` 내림차순
+3. `commute_min` 오름차순
+
+---
+
+### 2. `/recommend/property` – 매물 추천
+
+**입력값**
+- `dong`, `dong_code`: 추천받은 행정동 정보
+- `property_ids`: 해당 동 내 필터링된 매물 ID 리스트
+- `user_input`: 사용자 입력 전체 전달
+- `page`, `page_size`: 페이징 처리
+
+**추천 로직**
+1. `/recommend/area`에서 받은 매물 ID를 기반으로 매물 상세 정보 조회
+2. 각 매물에 대해 6가지 지표 점수 계산
+3. 매물 자체 옵션 보정 (가격 대비 효율 등)
+4. 총합 점수 계산 및 정렬
+
+**정렬 기준**
+- `score` 내림차순
+
+---
+
+## 추천 점수 계산 방식
+
+### 지표별 산정 방식
+
+| 지표 | 계산 방식 |
+|------|-----------|
+| `infra_score` | 음식점 수 / 면적 → 로그변환 후 정규화 |
+| `security_score` | CCTV 밀도 + 구별 범죄율 보정 |
+| `transport_score` | 정류장 + 지하철 수 밀도 기반 |
+| `quiet_score` | 생활인구 평균 & 표준편차 기반 조용함 지수 |
+| `youth_score` | 39세 이하 인구 비율 + 밀도 가중 평균 |
+| `commute_score` | `exp(-거리/시간)` 기반 감쇠 함수 |
+
+### 개인화 보정
+- 사용자 성별/연령 기반으로 지표에 +0.05~0.1 가중치 조정
+
+### 최종 점수 공식
+```
+total_score = Σ (지표 점수 × 개인화 계수 × 우선순위 가중치)
+```
+
+> 예: priority = ["commute", "infra", "security"] → 가중치 [0.5, 0.3, 0.2]
+
+---
+
+## 기술적 특징
+
+- **거리 기반 감쇠 함수 개선**: `1 / (1 + dist / decay)` sigmoid 방식으로 부드러운 거리 감쇠
+- **동 단위 특성 반영**: 매물별 점수는 개별 속성 + 동 단위 평균 점수의 조합으로 가중 평균
+- **멀티 스케일 필터링**: 전체 예산 범위 미지정 시 전체 후보 매물 포함
+- **페이징 처리**: page/page_size 기반 매물 결과 분할 제공
+
+---
+
+## 대표 사용자 시나리오
+
+> "서울 광진구 직장에 다니는 30세 남성, 자차로 출퇴근하며 원룸을 희망하는 사용자가 월세 80만 원 이하 매물을 찾는 상황"
+
+1. `/recommend/area` 호출로 추천 지역 TOP 5 확인
+2. "광장동" 선택 → property_ids 리스트 포함
+3. `/recommend/property`에 전달 → 추천 점수 기준 매물 정렬
+
+---
+
+## 업데이트 내역
+
+| 버전 | 주요 변경 사항 |
+|------|----------------|
+| 1.0.0 | 초기 API 배포 |
+| 1.0.1 | API 명세 정리 및 버전 관리 추가 |
+| 1.0.2 | priority 항목명 변경 (`safety` → `security`) |
+| 1.1.0 | Gunicorn 기반 프로덕션 배포 |
+| 1.1.1 | 감쇠 함수 개선 및 점수 보정 방식 고도화 |
+
+---
 
 #### 3.4. 디렉토리 구조
 
