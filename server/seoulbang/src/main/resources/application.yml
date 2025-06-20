@@ -1,0 +1,126 @@
+# 기본 프로파일: dev
+spring:
+  profiles:
+    group:
+      dev:
+        - db-dev
+        - log-dev
+      prod:
+        - db-prod
+        - log-prod
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+
+#--- 개발용 DB 설정 (db-dev 프로파일) --------------------------------
+---
+spring:
+  config:
+    activate:
+      on-profile: db-dev
+
+  datasource:
+    url: jdbc:postgresql://${DB_DEV_HOST}:${DB_DEV_PORT}/${DB_DEV_NAME}
+    driver-class-name: org.postgresql.Driver
+    username: ${DB_DEV_USERNAME}
+    password: ${DB_DEV_PASSWORD}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    open-in-view: false
+
+  cache:
+    type: caffeine
+    cache-names: buildingInfoCache, kakaoCoordinateCache, kakaoAddressCache
+    caffeine:
+      spec: maximumSize=1000,expireAfterWrite=3600s
+
+#--- 운영용 DB 설정 (db-prod 프로파일) -------------------------------
+---
+spring:
+  config:
+    activate:
+      on-profile: db-prod
+
+  datasource:
+    url: jdbc:postgresql://${DB_PROD_HOST}:${DB_PROD_PORT}/${DB_PROD_NAME}
+    driver-class-name: org.postgresql.Driver
+    username: ${DB_PROD_USERNAME}
+    password: ${DB_PROD_PASSWORD}
+
+  jpa:
+    properties:
+      hibernate:
+        ddl-auto: none
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: false
+    open-in-view: false
+
+  cache:
+    type: caffeine
+    cache-names: buildingInfoCache, kakaoCoordinateCache, kakaoAddressCache
+    caffeine:
+      spec: maximumSize=1000,expireAfterWrite=3600s
+
+#--- 개발용 로깅 설정 (log-dev 프로파일) -------------------------------
+---
+spring:
+  config:
+    activate:
+      on-profile: log-dev
+
+logging:
+  level:
+    root: DEBUG
+    org.springframework: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql: TRACE
+    com.example: DEBUG
+  file:
+    path: ./logs
+    name: dev.log
+  logback:
+    rollingpolicy:
+      max-history: 7
+      total-size-cap: 10MB
+
+#--- 운영용 로깅 설정 (log-prod 프로파일) -----------------------------
+---
+spring:
+  config:
+    activate:
+      on-profile: log-prod
+
+logging:
+  level:
+    root: INFO
+    org.springframework: WARN
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql: TRACE
+    com.example: DEBUG
+  file:
+    path: ./logs
+    name: prod.log
+  logback:
+    rollingpolicy:
+      max-history: 30
+      total-size-cap: 5GB
+
+#--- api key -----------------------------
+---
+kakao:
+  api:
+    key: ${KAKAO_API_KEY}
+    key2: ${KAKAO_API_KEY_2}
+
+public:
+  api:
+    key: ${PUBLIC_API_KEY}
+
+recommend:
+  api:
+    url: http://tetori.iptime.org:3177
+
+
+
